@@ -1,0 +1,11 @@
+<resources>
+
+    <style name="RootView" parent="Settings.BaseRootView">
+        <item name="android:paddingStart">@dimen/dimen_16_dp</item>
+        <item name="android:paddingEnd">@dimen/dimen_16_dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+
+
+</resources>

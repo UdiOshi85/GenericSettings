@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="checkboxTitleSubtitle"
+            type="com.udioshi85.libgenericsettings.data.CheckboxTitleSubtitleData" />
+
+        <variable
+            name="settingsPresenter"
+            type="com.udioshi85.libgenericsettings.presenter.ISettingsPresenter" />
+
+        <variable
+            name="itemPosition"
+            type="java.lang.Integer" />
+
+    </data>
+
+
+    <android.support.constraint.ConstraintLayout
+        style="@style/RootView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(view) -> settingsPresenter.onCheckboxTitleSubtitleClick(view, checkboxTitleSubtitle, itemPosition)}">
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/checkbox"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:checked="@{checkboxTitleSubtitle.isEnabled, default=true}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/dimen_16_dp"
+            android:paddingStart="@dimen/dimen_16_dp"
+            android:paddingRight="@dimen/dimen_16_dp"
+            android:paddingEnd="@dimen/dimen_16_dp"
+            android:text="@{checkboxTitleSubtitle.title, default=`Title example here`}"
+            style="@style/Settings.Title"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/subtitle"
+            app:layout_constraintStart_toEndOf="@+id/checkbox"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/dimen_16_dp"
+            android:paddingStart="@dimen/dimen_16_dp"
+            android:paddingRight="@dimen/dimen_16_dp"
+            android:paddingEnd="@dimen/dimen_16_dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="@{checkboxTitleSubtitle.subtitle, default=`A subtitle text`}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/checkbox"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

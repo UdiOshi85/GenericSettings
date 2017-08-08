@@ -19,7 +19,7 @@ So I decided to build my own Generic settings library using the lates android li
 
 ## Integration
 
-Compile the latest code
+* Via Gradle
 ```gradle
 // In you top level project build.gradle file
 repositories {
@@ -33,3 +33,13 @@ dependencies {
   compile 'com.github.udioshi85:libGenericSettings:1.0.2'
 }
 ````  
+
+* Via Maven
+````xml
+<dependency>
+  <groupId>com.github.udioshi85</groupId>
+  <artifactId>libGenericSettings</artifactId>
+  <version>1.0.2</version>
+  <type>pom</type>
+</dependency>
+```

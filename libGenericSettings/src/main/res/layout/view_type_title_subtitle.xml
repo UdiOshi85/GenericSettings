@@ -5,11 +5,11 @@
     <data>
         <variable
             name="titleSubtitleData"
-            type="com.udioshi85.libgenericsettings.data.TitleSubtitleData" />
+            type="com.oshi.libgenericsettings.data.TitleSubtitleData" />
 
         <variable
             name="settingsPresenter"
-            type="com.udioshi85.libgenericsettings.presenter.ISettingsPresenter" />
+            type="com.oshi.libgenericsettings.presenter.ISettingsPresenter" />
 
         <variable
             name="itemPosition"
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{titleSubtitleData.title, default=`Title example here`}"
-            android:textColor="@{titleSubtitleData.titleColor}"
+            android:textColor="@{titleSubtitleData.titleColor > 0 ? context.getResources().getColor(titleSubtitleData.titleColor) : @color/black}"
             app:layout_constraintBottom_toTopOf="@+id/subtitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -40,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{titleSubtitleData.subtitle, default=`A subtitle text`}"
-            android:textColor="@{titleSubtitleData.subtitleColor}"
+            android:textColor="@{titleSubtitleData.subtitleColor > 0 ? context.getResources().getColor(titleSubtitleData.subtitleColor) : @color/text}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title" />

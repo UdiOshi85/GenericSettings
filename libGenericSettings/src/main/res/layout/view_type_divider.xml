@@ -4,13 +4,13 @@
     <data>
         <variable
             name="dividerData"
-            type="com.udioshi85.libgenericsettings.data.DividerData"/>
+            type="com.oshi.libgenericsettings.data.DividerData"/>
 
     </data>
 
     <View
         android:layout_width="match_parent"
-        android:background="@{dividerData.dividerColor, default=@color/divider}"
+        android:background="@{dividerData.dividerColor > 0 ? context.getResources().getColor(dividerData.dividerColor) : @color/divider}"
         android:layout_height="1dp" />
 
 

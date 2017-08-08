@@ -3,10 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="headerData"
-            type="com.udioshi85.libgenericsettings.data.HeaderData" />
+            type="com.oshi.libgenericsettings.data.HeaderData" />
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -19,7 +18,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@{headerData.headerName, default=`Header Example`}"
-            android:textColor="@{headerData.headerColor}"
+            android:textColor="@{headerData.headerColor > 0 ? context.getResources().getColor(headerData.headerColor) : @color/black }"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

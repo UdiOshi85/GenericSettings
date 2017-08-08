@@ -4,4 +4,5 @@
     <color name="black">#000000</color>
     <color name="text">#808080</color>
     <color name="divider">#1e000000</color>
+    <color name="red">#ff0000</color>
 </resources>

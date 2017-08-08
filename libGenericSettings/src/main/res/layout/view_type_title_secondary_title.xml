@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
-            name="titleSwitchData"
-            type="com.oshi.libgenericsettings.data.TitleSwitchData"/>
+            name="titleSecondaryTitleData"
+            type="com.oshi.libgenericsettings.data.TitleSecondaryTitleData" />
 
         <variable
             name="settingsPresenter"
@@ -18,34 +19,33 @@
     </data>
 
     <android.support.constraint.ConstraintLayout
+        style="@style/RootView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{(view) -> settingsPresenter.onTitleSwitchClick(view, titleSwitchData, itemPosition)}"
-        style="@style/RootView">
+        android:onClick="@{(view) -> settingsPresenter.onTitleSecondaryTitleClick(view, titleSecondaryTitleData, itemPosition)}">
 
         <TextView
             android:id="@+id/title"
             style="@style/Settings.Title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{titleSwitchData.title, default=`Title example here`}"
-            android:textColor="@{titleSwitchData.titleColor > 0 ? context.getResources().getColor(titleSwitchData.titleColor) : @color/black}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{titleSecondaryTitleData.title, default=`Title example here`}"
+            android:textColor="@{titleSecondaryTitleData.titleColor > 0 ? context.getResources().getColor(titleSecondaryTitleData.titleColor) : @color/black}"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/switchView" />
+            app:layout_constraintEnd_toStartOf="@+id/secondaryTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-
-        <android.support.v7.widget.SwitchCompat
-            android:id="@+id/switchView"
+        <TextView
+            android:id="@+id/secondaryTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:clickable="false"
-            android:background="@android:color/transparent"
-            android:checked="@{titleSwitchData.isSwitchOn, default=false}"
+            android:text="@{titleSecondaryTitleData.secondaryTitle, default=`999`}"
+            android:textColor="@{titleSecondaryTitleData.secondaryTitleColor > 0 ? context.getResources().getColor(titleSecondaryTitleData.secondaryTitleColor) : @color/text}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
 
     </android.support.constraint.ConstraintLayout>
 

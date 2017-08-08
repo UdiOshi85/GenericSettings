@@ -16,3 +16,20 @@ So I had enoght. wasted to much time in my life doing same code every time.
 * But why not using [Android native Settings Preferences](https://developer.android.com/guide/topics/ui/settings.html)?
 It provides an easy implementation via XML and works directly with SharedPreferences. But to me it's kinda old approach and take care of the UI. But once you need to open a specific nested PreferenceScreen or send analytics once you clicked it's get very frustrating.
 So I decided to build my own Generic settings library using the lates android library such as Data Binding & ConstraintLayout for the views.
+
+## Integration
+
+Compile the latest code
+```gradle
+// In you top level project build.gradle file
+repositories {
+  mavenCentral() // jcenter() is also working.
+}
+
+// In you application module build.gradle file
+dependencies {
+  ...
+  ...
+  compile 'com.github.udioshi85:libGenericSettings:1.0.2'
+}
+````  

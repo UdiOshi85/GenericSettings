@@ -14,6 +14,11 @@ Android generic settings library to handle all kinds of items in your applicatio
 As an android developer for 6 years, many times i've started new project (For myself or in my work) and had to do SettingsActivity over and over again.
 So I had enoght. wasted to much time in my life doing same code every time.
 
+Native settings preference - Pros & Cons
+
+* <span style="color:green">Easy & fast implementation</span>
+* Works directly with SharedPreferences.
+* All screens - one XML!
 
 
 * But why not using [Android native Settings Preferences](https://developer.android.com/guide/topics/ui/settings.html)?

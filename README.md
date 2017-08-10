@@ -57,5 +57,7 @@ dependencies {
 ````
 
 ## Supported views
-* HeaderData - Header POJO. Title & Color fields.
-![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/header-title.jpg "HeaderData example")
+* HeaderData - Header POJO. headerName (String) & headerColor (Integer) fields.
+![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/header-title.jpg "HeaderData example")  
+* TitleData - Title POJO. title (String) & titleColor (Integer) fields.
+![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/title.jpg "TitleData example")  

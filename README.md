@@ -58,3 +58,4 @@ dependencies {
 
 ## Supported views
 * HeaderData - Header POJO. Title & Color fields.
+![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/header-title.jpg "HeaderData example")

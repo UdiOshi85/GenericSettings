@@ -57,3 +57,4 @@ dependencies {
 ````
 
 ## Supported views
+* HeaderData - Header POJO. Title & Color fields.

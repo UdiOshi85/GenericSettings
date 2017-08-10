@@ -16,9 +16,9 @@ So I had enoght. wasted to much time in my life doing same code every time.
 
 Native settings preference - Pros & Cons
 
-* <span style="color:green">Easy & fast implementation</span>
-* Works directly with SharedPreferences.
-* All screens - one XML!
+![#c5f015](https://placehold.it/15/c5f015/000000?text=+) `Easy & fast implementation`
+![#c5f015](https://placehold.it/15/c5f015/000000?text=+) `Works directly with SharedPreferences`
+![#c5f015](https://placehold.it/15/c5f015/000000?text=+) `All screens - one XML!`
 
 
 * But why not using [Android native Settings Preferences](https://developer.android.com/guide/topics/ui/settings.html)?

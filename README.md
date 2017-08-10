@@ -21,6 +21,7 @@ So I had enoght. wasted to much time in my life doing same code every time.
 ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) `All screens - one XML!`  
 ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `Very difficult to control items layout (Heights, colors etc..)`  
 ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `Very difficult to navigate into nested preference screens and control back press`  
+![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `Very difficult to add & manage custom preference with custom UI`  
 
 
 * But why not using [Android native Settings Preferences](https://developer.android.com/guide/topics/ui/settings.html)?

@@ -57,7 +57,11 @@ dependencies {
 ````
 
 ## Supported views
-* HeaderData - Header POJO. headerName (String) & headerColor (Integer) fields.
+* HeaderData -  headerName (String) & headerColor (Integer) fields.
 ![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/header-title.jpg "HeaderData example")  
-* TitleData - Title POJO. title (String) & titleColor (Integer) fields.
+* TitleData - title (String) & titleColor (Integer) fields.
 ![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/title.jpg "TitleData example")  
+* TitleSubtitleData - title (String), subtitle (String), titleColor (Integer) & subtitleColor (Integer) fields.
+![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/title-subtitle-data.jpg "TitleSubtitleData example") 
+* IconTitleData - TitleData Fields & iconResId (Integer) field.
+![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/icon-title.jpg "TitleSubtitleData example") 

@@ -8,6 +8,7 @@ Android generic settings library to handle all kinds of items in your applicatio
 - [Introduction](#introduction)
 - [Compile](#compile)
 - [Supported views](#supported-views)
+- [Example](#example)
 
 ## Introduction
 
@@ -55,4 +56,4 @@ dependencies {
 </dependency>
 ````
 
-
+## Supported views

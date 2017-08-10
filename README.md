@@ -64,4 +64,12 @@ dependencies {
 * TitleSubtitleData - title (String), subtitle (String), titleColor (Integer) & subtitleColor (Integer) fields.
 ![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/title-subtitle-data.jpg "TitleSubtitleData example") 
 * IconTitleData - TitleData Fields & iconResId (Integer) field.
-![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/icon-title.jpg "TitleSubtitleData example") 
+![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/icon-title.jpg "IconTitleData example") 
+* TitleSwitchData - TitleData Fields & isSwitchOn (Boolean) field.
+![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/title-switch.jpg "TitleSwitchData example") 
+* TitleSubtitleSwitchData - TitleSubtitleData Fields & isSwitchOn (Boolean) field.
+![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/title-subtitle-switch.jpg "TitleSubtitleSwitchData example") 
+* TitleSubtitleCheckbox - TitleSubtitleData fields & isEnabled field.  
+![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/title-subtitle-checkbox.jpg "TitleSubtitleCheckbox example")
+ * TitleSecondaryTitleData -  TitleData Fields, secondaryTitle (String) & secondaryTitleColor (Integer) fields.
+ ![alt text]( https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/title-secondary-title.jpg "TitleSecondaryTitleData example")

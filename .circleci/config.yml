@@ -1,8 +1,5 @@
 version: 2
 jobs:
-   dependencies:
-     override:
-        - chmod +x gradlew
    build:
      working_directory: ~/code
      docker:

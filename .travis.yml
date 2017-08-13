@@ -10,8 +10,6 @@ env:
     - ANDROID_BUILD_TOOLS_VERSION=26.0.1
     - ANDROID_ABI=armeabi-v7a
     - ADB_INSTALL_TIMEOUT=10 # minutes (2 minutes by default)
-  matrix:
-    - ANDROID_TARGET=android-26 ANDROID_ABI=armeabi-v7a
 
 android:
   components:
@@ -21,7 +19,7 @@ android:
         - build-tools-$ANDROID_BUILD_TOOLS_VERSION
         - android-26
         - extra-android-m2repository
-        - sys-img-armeabi-v7a-android-26
+        - sys-img-armeabi-v7a-android-22
 
 
 licenses:
@@ -31,5 +29,3 @@ licenses:
 
 before_install:
  - chmod +x gradlew
-
-script: ./gradlew --info connectedAndroidTest

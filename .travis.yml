@@ -1,5 +1,5 @@
 language: android
-sudo: required
+sudo: false
 jdk: oraclejdk8
 
 android:
@@ -33,3 +33,9 @@ licenses:
 
 before_install:
  - chmod +x gradlew
+
+before_script:
+   - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
+   - emulator -avd test -no-skin -no-audio -no-window &
+   - android-wait-for-emulator
+   - adb shell input keyevent 82 &

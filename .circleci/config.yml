@@ -12,4 +12,4 @@ jobs:
             key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
        - run:
                  name: Run Tests
-                 command: ./chmod +x gradlew lint test
+                 command: ./gradlew lint test

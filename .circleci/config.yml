@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  dependencies:
+   dependencies:
      override:
         - chmod +x gradlew
    build:

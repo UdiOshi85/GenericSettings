@@ -26,4 +26,6 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
+tasks.withType(Javadoc).all { enabled = false }
+
 

@@ -1,3 +1,3 @@
 include ':app'
-/*include ':libGenericSettings'
-project(":libGenericSettings").projectDir = file("../libGenericSettings")*/
+include ':libGenericSettings'
+project(":libGenericSettings").projectDir = file("../libGenericSettings")

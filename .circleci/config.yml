@@ -2,7 +2,7 @@ version: 2
 jobs:
    build:
      docker:
-       - image: circleci/openjdk:8
+       - image: circleci/android:api-25-alpha
      steps:
        - checkout
        - run: echo "hello world"

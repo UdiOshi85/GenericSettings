@@ -6,6 +6,9 @@ jobs:
        - image: circleci/android:api-25-alpha
      environment:
            JVM_OPTS: -Xmx3200m
+     dependencies:
+                        override:
+                           - chmod +x gradlew
      steps:
        - checkout
        - restore_cache:
@@ -13,6 +16,3 @@ jobs:
        - run:
                  name: Run Tests
                  command: ./gradlew lint test
-                 dependencies:
-                   override:
-                      - chmod +x gradlew

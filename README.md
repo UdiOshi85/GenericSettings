@@ -12,8 +12,8 @@ Android generic settings library to handle all kinds of items in your applicatio
 
 ## Introduction
 
-As an android developer for 6 years, many times i've started new project (For myself or in my work) and had to do SettingsActivity over and over again.
-So I had enoght. wasted to much time in my life doing same code every time.
+As an android developer for 6 years, many times I've started new project (For myself or in my work) and had to do Settings Activity over and over again.
+So I had enough. wasted to much time in my life doing same code every time.
 
 #### Native settings preference - Pros & Cons
 

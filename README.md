@@ -8,7 +8,7 @@ Android generic settings library to handle all kinds of items in your applicatio
 - [Compile](#compile)
 - [Supported views](#supported-views)
 - [Example](#example)
-- [License & Contribution](#License-&-Contribution)
+- [Contribution](#contribution)
 
 ## Introduction
 
@@ -157,6 +157,6 @@ And the output is:
  
 ## Dev note - To handle clicks, you should override the functions in BaseSettingsPresenter class
 
-## License & Contribution
+## Contribution
 This library was built for all developers who don't wish to do all the Settings screen logic over and over again. You can do whatever you want with this library. No contribution is needed. the You can clone/download full library code.  
 I do wish to get your feedback about this library, I will maintain it as long as i'm considering myself as an android developer so feel free to open issues / ask for new viewtypes / or just STAR this page.

@@ -3,8 +3,6 @@
 Android generic settings library to handle all kinds of items in your application. (Equivalent to [Native settings preference](https://developer.android.com/guide/topics/ui/settings.html))
 
 [ ![Download](https://api.bintray.com/packages/udioshi85/maven/libGenericSettings/images/download.svg) ](https://bintray.com/udioshi85/maven/libGenericSettings/_latestVersion)
-[![Build Status](https://travis-ci.org/UdiOshi85/GenericSettings.svg?branch=master)](https://travis-ci.org/UdiOshi85/GenericSettings)
-
 ### Table of Contents
 - [Introduction](#introduction)
 - [Compile](#compile)
@@ -43,7 +41,7 @@ repositories {
 dependencies {
   ...
   ...
-  compile 'com.github.udioshi85:libGenericSettings:1.0.2'
+  compile 'com.github.udioshi85:libGenericSettings:1.0.4'
 }
 ````  
 
@@ -52,7 +50,7 @@ dependencies {
 <dependency>
   <groupId>com.github.udioshi85</groupId>
   <artifactId>libGenericSettings</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.4</version>
   <type>pom</type>
 </dependency>
 ````

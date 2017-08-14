@@ -3,6 +3,9 @@
 Android generic settings library to handle all kinds of items in your application. (Equivalent to [Native settings preference](https://developer.android.com/guide/topics/ui/settings.html))
 
 [ ![Download](https://api.bintray.com/packages/udioshi85/maven/libGenericSettings/images/download.svg) ](https://bintray.com/udioshi85/maven/libGenericSettings/_latestVersion)
+[ ![Android API Level](https://img.shields.io/badge/API-15%2B-blue.svg) ]()
+
+
 ### Table of Contents
 - [Introduction](#introduction)
 - [Compile](#compile)

@@ -72,7 +72,6 @@ public class MainPresenter extends BaseSettingsPresenter {
         TitleSecondaryTitleData titleSecondaryTitleData = new TitleSecondaryTitleData("Title & Secondary title", "8");
         dataList.add(titleSecondaryTitleData);
 
-
         return dataList;
     }
 }

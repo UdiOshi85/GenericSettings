@@ -8,11 +8,12 @@ Android generic settings library to handle all kinds of items in your applicatio
 - [Compile](#compile)
 - [Supported views](#supported-views)
 - [Example](#example)
+- [Contribution](#contribution)
 
 ## Introduction
 
-As an android developer for 6 years, many times i've started new project (For myself or in my work) and had to do SettingsActivity over and over again.
-So I had enoght. wasted to much time in my life doing same code every time.
+As an android developer for 6 years, many times I've started new project (For myself or in my work) and had to do Settings Activity over and over again.
+So I had enough. wasted to much time in my life doing same code every time.
 
 #### Native settings preference - Pros & Cons
 
@@ -41,7 +42,7 @@ repositories {
 dependencies {
   ...
   ...
-  compile 'com.github.udioshi85:libGenericSettings:1.0.4'
+  compile 'com.github.udioshi85:libGenericSettings:1.0.5'
 }
 ````  
 
@@ -50,29 +51,29 @@ dependencies {
 <dependency>
   <groupId>com.github.udioshi85</groupId>
   <artifactId>libGenericSettings</artifactId>
-  <version>1.0.4</version>
+  <version>1.0.5</version>
   <type>pom</type>
 </dependency>
 ````
 
 ## Supported views
-* HeaderData -  headerName (String) & headerColor (Integer) fields.
+* [HeaderData](https://github.com/UdiOshi85/libGenericSettings/blob/master/src/main/java/com/oshi/libgenericsettings/data/HeaderData.java) -  headerName (String) & headerColor (Integer) fields.
 ![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/header-title.jpg "HeaderData example")  
-* TitleData - title (String) & titleColor (Integer) fields.
+* [TitleData](https://github.com/UdiOshi85/libGenericSettings/blob/master/src/main/java/com/oshi/libgenericsettings/data/TitleData.java) - title (String) & titleColor (Integer) fields.
 ![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/title.jpg "TitleData example")  
-* TitleSubtitleData - title (String), subtitle (String), titleColor (Integer) & subtitleColor (Integer) fields.
+* [TitleSubtitleData](https://github.com/UdiOshi85/libGenericSettings/blob/master/src/main/java/com/oshi/libgenericsettings/data/TitleSubtitleData.java) - title (String), subtitle (String), titleColor (Integer) & subtitleColor (Integer) fields.
 ![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/title-subtitle-data.jpg "TitleSubtitleData example") 
-* IconTitleData - TitleData Fields & iconResId (Integer) field.
+* [IconTitleData](https://github.com/UdiOshi85/libGenericSettings/blob/master/src/main/java/com/oshi/libgenericsettings/data/IconTitleData.java) - TitleData Fields & iconResId (Integer) field.
 ![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/icon-title.jpg "IconTitleData example") 
-* TitleSwitchData - TitleData Fields & isSwitchOn (Boolean) field.
+* [TitleSwitchData](https://github.com/UdiOshi85/libGenericSettings/blob/master/src/main/java/com/oshi/libgenericsettings/data/TitleSwitchData.java) - TitleData Fields & isSwitchOn (Boolean) field.
 ![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/title-switch.jpg "TitleSwitchData example") 
-* TitleSubtitleSwitchData - TitleSubtitleData Fields & isSwitchOn (Boolean) field.
+* [TitleSubtitleSwitchData](https://github.com/UdiOshi85/libGenericSettings/blob/master/src/main/java/com/oshi/libgenericsettings/data/TitleSubtitleSwitchData.java) - TitleSubtitleData Fields & isSwitchOn (Boolean) field.
 ![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/title-subtitle-switch.jpg "TitleSubtitleSwitchData example") 
-* TitleSubtitleCheckbox - TitleSubtitleData fields & isEnabled field.  
+* [TitleSubtitleCheckbox](https://github.com/UdiOshi85/libGenericSettings/blob/master/src/main/java/com/oshi/libgenericsettings/data/TitleSubtitleCheckbox.java) - TitleSubtitleData fields & isEnabled field.  
 ![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/title-subtitle-checkbox.jpg "TitleSubtitleCheckbox example")
- * TitleSecondaryTitleData -  TitleData Fields, secondaryTitle (String) & secondaryTitleColor (Integer) fields.
+ * [TitleSecondaryTitleData](https://github.com/UdiOshi85/libGenericSettings/blob/master/src/main/java/com/oshi/libgenericsettings/data/TitleSecondaryTitleData.java) -  TitleData Fields, secondaryTitle (String) & secondaryTitleColor (Integer) fields.
  ![alt text]( https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/title-secondary-title.jpg "TitleSecondaryTitleData example")
- * DividerData - dividerColor(Integer) field - Simple divider, 1 dp height.
+ * [DividerData](https://github.com/UdiOshi85/libGenericSettings/blob/master/src/main/java/com/oshi/libgenericsettings/data/DividerData.java) - dividerColor(Integer) field - Simple divider, 1 dp height.
  
  ## Example
  I tried to minify the code as much as I can't. So we're going to need a recyclerview, adapter, and presenter.
@@ -151,3 +152,11 @@ public class MainPresenter extends BaseSettingsPresenter {
     }
 ````
 
+And the output is:
+ ![alt text]( https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/all-items.png "Setting screen example")
+ 
+## Dev note - To handle clicks, you should override the functions in BaseSettingsPresenter class
+
+## Contribution
+This library was built for all developers who don't wish to do all the Settings screen logic over and over again. You can do whatever you want with this library. No contribution is needed. the You can [clone/download full library code](https://github.com/UdiOshi85/libGenericSettings).  
+I do wish to get your feedback about this library, I will maintain it as long as i'm considering myself as an android developer so feel free to open issues / ask for new viewtypes / or just STAR this page.

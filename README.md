@@ -72,3 +72,82 @@ dependencies {
 ![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/title-subtitle-checkbox.jpg "TitleSubtitleCheckbox example")
  * TitleSecondaryTitleData -  TitleData Fields, secondaryTitle (String) & secondaryTitleColor (Integer) fields.
  ![alt text]( https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/title-secondary-title.jpg "TitleSecondaryTitleData example")
+ * DividerData - dividerColor(Integer) field - Simple divider, 1 dp height.
+ 
+ ## Example
+ I tried to minify the code as much as I can't. So we're going to need a recyclerview, adapter, and presenter.
+
+In your Activity/Fragment add a simple xml with RecyclerView and in your onCreate / onViewCreated
+````java
+ @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        settingsPresenter = new MainPresenter();
+        adapter = new SettingsAdapter(MainActivity.this, settingsPresenter);
+        recyclerView.setAdapter(adapter);
+    }
+````
+For the presenter, Create your own MainPresenter and extend from BaseSettingsPresenter. Here's a presenter example which shows all the view types together:
+````java
+public class MainPresenter extends BaseSettingsPresenter {
+
+    @Override
+    public List<BaseViewTypeData> getItems(Context context) {
+
+        List<BaseViewTypeData> dataList = new ArrayList<>();
+
+        // Simple header
+        HeaderData firstHeader = new HeaderData("Simple header");
+        dataList.add(firstHeader);
+
+        // Title only
+        TitleData titleData = new TitleData("Title only");
+        dataList.add(titleData);
+
+        dataList.add(DividerData.create());
+
+        // Title & Subtitle, Subtitle is red!
+        TitleSubtitleData titleSubtitleData = new TitleSubtitleData("Title & Subtitle", "Subtitle is red!");
+        titleSubtitleData.setSubtitleColor(R.color.red);
+        dataList.add(titleSubtitleData);
+
+        dataList.add(DividerData.create());
+
+        // Icon & title
+        IconTitleData iconTitleData = new IconTitleData("Icon & title");
+        iconTitleData.setIconResId(R.drawable.ic_android_black_24dp);
+        dataList.add(iconTitleData);
+
+        // Colored header
+        HeaderData coloredHeader = new HeaderData("Colored header", R.color.red);
+        dataList.add(coloredHeader);
+
+        // Title & Switch
+        TitleSwitchData titleSwitchData = new TitleSwitchData("Title & Switch", false);
+        dataList.add(titleSwitchData);
+
+        dataList.add(DividerData.create());
+
+        // Title, Subtitle & Switch
+        TitleSubtitleSwitchData titleSubtitleSwitchData = new TitleSubtitleSwitchData("Title, Subtitle & Switch", "Subtitle is here", false);
+        dataList.add(titleSubtitleSwitchData);
+
+        dataList.add(DividerData.create());
+
+        // Title, Subtitle & Checkbox
+        TitleSubtitleCheckbox titleSubtitleCheckbox = new TitleSubtitleCheckbox("Title, Subtitle & Checkbox", "Subtitle is here", false);
+        dataList.add(titleSubtitleCheckbox);
+
+        dataList.add(DividerData.create());
+
+        // Title & Secondary title
+        TitleSecondaryTitleData titleSecondaryTitleData = new TitleSecondaryTitleData("Title & Secondary title", "8");
+        dataList.add(titleSecondaryTitleData);
+
+        return dataList;
+    }
+````
+

@@ -38,6 +38,6 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:design:25.4.0'
-    compile 'com.github.udioshi85:libGenericSettings:1.0.4'
+    compile 'com.github.udioshi85:libGenericSettings:1.0.5'
 //    compile project(path: ':libGenericSettings')
 }

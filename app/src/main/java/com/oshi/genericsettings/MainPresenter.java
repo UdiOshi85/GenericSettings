@@ -1,6 +1,8 @@
 package com.oshi.genericsettings;
 
 import android.content.Context;
+import android.view.View;
+import android.widget.Toast;
 
 import com.oshi.libgenericsettings.data.BaseViewTypeData;
 import com.oshi.libgenericsettings.data.DividerData;
@@ -19,6 +21,20 @@ import java.util.List;
 
 public class MainPresenter extends BaseSettingsPresenter {
 
+    private static int POSITION_TITLE_ONLY_EXAMPLE = 1;
+    private static int POSITION_TITLE_SUBTITLE_EXAMPLE = 3;
+    private static int POSITION_ICON_WITH_TITLE_EXAMPLE = 5;
+    private static int POSITION_TITLE_WITH_SWITCH_EXAMPLE = 7;
+    private static int POSITION_TITLE_SUBTITLE_SWITCH_EXAMPLE = 9;
+    private static int POSITION_TITLE_SUBTITLE_CHECKBOX_EXAMPLE = 11;
+    private static int POSITION_TITLE_SECONDARY_TITLE_EXAMPLE = 13;
+
+    private OnSettingsChangedListener listener;
+
+    public MainPresenter(OnSettingsChangedListener l) {
+        this.listener = l;
+    }
+
     @Override
     public List<BaseViewTypeData> getItems(Context context) {
 
@@ -30,21 +46,21 @@ public class MainPresenter extends BaseSettingsPresenter {
 
         // Title only
         TitleData titleData = new TitleData("Title only");
-        dataList.add(titleData);
+        dataList.add(POSITION_TITLE_ONLY_EXAMPLE, titleData);
 
         dataList.add(DividerData.create());
 
         // Title & Subtitle, Subtitle is red!
         TitleSubtitleData titleSubtitleData = new TitleSubtitleData("Title & Subtitle", "Subtitle is red!");
         titleSubtitleData.setSubtitleColor(R.color.red);
-        dataList.add(titleSubtitleData);
+        dataList.add(POSITION_TITLE_SUBTITLE_EXAMPLE, titleSubtitleData);
 
         dataList.add(DividerData.create());
 
         // Icon & title
         IconTitleData iconTitleData = new IconTitleData("Icon & title");
         iconTitleData.setIconResId(R.drawable.ic_android_black_24dp);
-        dataList.add(iconTitleData);
+        dataList.add(POSITION_ICON_WITH_TITLE_EXAMPLE, iconTitleData);
 
         // Colored header
         HeaderData coloredHeader = new HeaderData("Colored header", R.color.red);
@@ -52,26 +68,113 @@ public class MainPresenter extends BaseSettingsPresenter {
 
         // Title & Switch
         TitleSwitchData titleSwitchData = new TitleSwitchData("Title & Switch", false);
-        dataList.add(titleSwitchData);
+        dataList.add(POSITION_TITLE_WITH_SWITCH_EXAMPLE, titleSwitchData);
 
         dataList.add(DividerData.create());
 
         // Title, Subtitle & Switch
         TitleSubtitleSwitchData titleSubtitleSwitchData = new TitleSubtitleSwitchData("Title, Subtitle & Switch", "Subtitle is here", false);
-        dataList.add(titleSubtitleSwitchData);
+        dataList.add(POSITION_TITLE_SUBTITLE_SWITCH_EXAMPLE, titleSubtitleSwitchData);
 
         dataList.add(DividerData.create());
 
         // Title, Subtitle & Checkbox
         TitleSubtitleCheckbox titleSubtitleCheckbox = new TitleSubtitleCheckbox("Title, Subtitle & Checkbox", "Subtitle is here", false);
-        dataList.add(titleSubtitleCheckbox);
+        dataList.add(POSITION_TITLE_SUBTITLE_CHECKBOX_EXAMPLE, titleSubtitleCheckbox);
 
         dataList.add(DividerData.create());
 
         // Title & Secondary title
         TitleSecondaryTitleData titleSecondaryTitleData = new TitleSecondaryTitleData("Title & Secondary title", "8");
-        dataList.add(titleSecondaryTitleData);
+        dataList.add(POSITION_TITLE_SECONDARY_TITLE_EXAMPLE, titleSecondaryTitleData);
 
         return dataList;
+    }
+
+    @Override
+    public void onTitleClick(View view, TitleData data, int position) {
+        super.onTitleClick(view, data, position);
+
+        if (position == POSITION_TITLE_ONLY_EXAMPLE) {
+            Toast.makeText(view.getContext(), "Clicked on title only at position = " + position, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onTitleSubtitleClick(View view, TitleSubtitleData data, int position) {
+        super.onTitleSubtitleClick(view, data, position);
+
+        if (position == POSITION_TITLE_SUBTITLE_EXAMPLE) {
+            Toast.makeText(view.getContext(), "Clicked on Title & Subtitle only at position = " + position, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onIconTitleClick(View view, IconTitleData data, int position) {
+        super.onIconTitleClick(view, data, position);
+
+        if (position == POSITION_ICON_WITH_TITLE_EXAMPLE) {
+            Toast.makeText(view.getContext(), "Clicked on Icon & title at position = " + position, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onTitleSwitchClick(View view, TitleSwitchData data, int position) {
+        super.onTitleSwitchClick(view, data, position);
+
+        if (position == POSITION_TITLE_WITH_SWITCH_EXAMPLE) {
+            Toast.makeText(view.getContext(), "Title & Switch at position = " + position, Toast.LENGTH_SHORT).show();
+            boolean oldVal = data.isSwitchOn();
+            boolean newVal = !oldVal;
+
+            data.setSwitchOn(newVal);
+
+            listener.notifyItemChanged(position);
+        }
+    }
+
+    @Override
+    public void onTitleSubtitleSwitchClick(View view, TitleSubtitleSwitchData data, int position) {
+        super.onTitleSubtitleSwitchClick(view, data, position);
+
+        if (position == POSITION_TITLE_SUBTITLE_SWITCH_EXAMPLE) {
+            Toast.makeText(view.getContext(), "Title, Subtitle & Switch at position = " + position, Toast.LENGTH_SHORT).show();
+            boolean oldVal = data.isSwitchOn();
+            boolean newVal = !oldVal;
+
+            data.setSwitchOn(newVal);
+
+            listener.notifyItemChanged(position);
+        }
+    }
+
+    @Override
+    public void onCheckboxTitleSubtitleClick(View view, TitleSubtitleCheckbox data, int position) {
+        super.onCheckboxTitleSubtitleClick(view, data, position);
+
+        if (position == POSITION_TITLE_SUBTITLE_CHECKBOX_EXAMPLE) {
+
+            Toast.makeText(view.getContext(), "Title, Subtitle & Checkbox at position = " + position, Toast.LENGTH_SHORT).show();
+            boolean oldVal = data.isEnabled();
+            boolean newVal = !oldVal;
+
+            data.setEnabled(newVal);
+
+            listener.notifyItemChanged(position);
+        }
+    }
+
+    @Override
+    public void onTitleSecondaryTitleClick(View view, TitleSecondaryTitleData data, int position) {
+        super.onTitleSecondaryTitleClick(view, data, position);
+
+        if (position == POSITION_TITLE_SECONDARY_TITLE_EXAMPLE) {
+            Toast.makeText(view.getContext(), "Title & Secondary title at position = " + position, Toast.LENGTH_SHORT).show();
+            int secondary = Integer.parseInt(data.getSecondaryTitle());
+            secondary++;
+            data.setSecondaryTitle(Integer.toString(secondary));
+
+            listener.notifyItemChanged(position);
+        }
     }
 }

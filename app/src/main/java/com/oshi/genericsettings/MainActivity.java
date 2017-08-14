@@ -21,7 +21,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-        settingsPresenter = new MainPresenter();
+        settingsPresenter = new MainPresenter(new ISettingsPresenter.OnSettingsChangedListener() {
+            @Override
+            public void notifyItemChanged(int position) {
+                adapter.notifyItemChanged(position);
+            }
+        });
         adapter = new SettingsAdapter(MainActivity.this, settingsPresenter);
         recyclerView.setAdapter(adapter);
     }

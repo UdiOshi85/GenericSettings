@@ -45,7 +45,7 @@ repositories {
 dependencies {
   ...
   ...
-  compile 'com.github.udioshi85:libGenericSettings:1.0.5'
+  compile 'com.github.udioshi85:libGenericSettings:1.0.6'
 }
 ````  
 
@@ -54,7 +54,7 @@ dependencies {
 <dependency>
   <groupId>com.github.udioshi85</groupId>
   <artifactId>libGenericSettings</artifactId>
-  <version>1.0.5</version>
+  <version>1.0.6</version>
   <type>pom</type>
 </dependency>
 ````
@@ -76,7 +76,12 @@ dependencies {
 ![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/title-subtitle-checkbox.jpg "TitleSubtitleCheckbox example")
  * [TitleSecondaryTitleData](https://github.com/UdiOshi85/libGenericSettings/blob/master/src/main/java/com/oshi/libgenericsettings/data/TitleSecondaryTitleData.java) -  TitleData Fields, secondaryTitle (String) & secondaryTitleColor (Integer) fields.
  ![alt text]( https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/title-secondary-title.jpg "TitleSecondaryTitleData example")
- * [DividerData](https://github.com/UdiOshi85/libGenericSettings/blob/master/src/main/java/com/oshi/libgenericsettings/data/DividerData.java) - dividerColor(Integer) field - Simple divider, 1 dp height.
+ * [DividerData](https://github.com/UdiOshi85/libGenericSettings/blob/master/src/main/java/com/oshi/libgenericsettings/data/DividerData.java) - dividerColor(Integer) field - Simple divider, 1 dp height.  
+ * [TitleIconSeekBarTextData](https://github.com/UdiOshi85/libGenericSettings/blob/master/src/main/java/com/oshi/libgenericsettings/data/TitleIconSeekBarTextData.java) - IconTitleData Fields, seekBarMaximumValue (Integer), seekBarCurrentProgress (Integer), seekBarColor (Integer), seekBarThumbColor (Integer) & textColor (Integer) fields.  
+![alt text]( https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/title-icon-seekbar-text-data.jpg "TitleIconSeekBarTextData example")  
+* [TitleUpDownValueData](https://github.com/UdiOshi85/libGenericSettings/blob/master/src/main/java/com/oshi/libgenericsettings/data/TitleUpDownValueData.java) - TitleData Fields, currentValue (Integer), valueTextColor (Integer) & upDownColor (Integer).
+![alt text](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/title-up-down-value-data.jpg "TitleUpDownValueData example")  
+ 
  
  ## Example
  I tried to minify the code as much as I can't. So we're going to need a recyclerview, adapter, and presenter.
@@ -89,7 +94,12 @@ In your Activity/Fragment add a simple xml with RecyclerView and in your onCreat
         setContentView(R.layout.activity_main);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-        settingsPresenter = new MainPresenter();
+        settingsPresenter = new MainPresenter(new ISettingsPresenter.OnSettingsChangedListener() {
+            @Override
+            public void notifyItemChanged(int position) {
+                adapter.notifyItemChanged(position);
+            }
+        });
         adapter = new SettingsAdapter(MainActivity.this, settingsPresenter);
         recyclerView.setAdapter(adapter);
     }
@@ -109,21 +119,21 @@ public class MainPresenter extends BaseSettingsPresenter {
 
         // Title only
         TitleData titleData = new TitleData("Title only");
-        dataList.add(titleData);
+        dataList.add(POSITION_TITLE_ONLY_EXAMPLE, titleData);
 
         dataList.add(DividerData.create());
 
         // Title & Subtitle, Subtitle is red!
         TitleSubtitleData titleSubtitleData = new TitleSubtitleData("Title & Subtitle", "Subtitle is red!");
         titleSubtitleData.setSubtitleColor(R.color.red);
-        dataList.add(titleSubtitleData);
+        dataList.add(POSITION_TITLE_SUBTITLE_EXAMPLE, titleSubtitleData);
 
         dataList.add(DividerData.create());
 
         // Icon & title
         IconTitleData iconTitleData = new IconTitleData("Icon & title");
         iconTitleData.setIconResId(R.drawable.ic_android_black_24dp);
-        dataList.add(iconTitleData);
+        dataList.add(POSITION_ICON_WITH_TITLE_EXAMPLE, iconTitleData);
 
         // Colored header
         HeaderData coloredHeader = new HeaderData("Colored header", R.color.red);
@@ -131,33 +141,49 @@ public class MainPresenter extends BaseSettingsPresenter {
 
         // Title & Switch
         TitleSwitchData titleSwitchData = new TitleSwitchData("Title & Switch", false);
-        dataList.add(titleSwitchData);
+        dataList.add(POSITION_TITLE_WITH_SWITCH_EXAMPLE, titleSwitchData);
 
         dataList.add(DividerData.create());
 
         // Title, Subtitle & Switch
         TitleSubtitleSwitchData titleSubtitleSwitchData = new TitleSubtitleSwitchData("Title, Subtitle & Switch", "Subtitle is here", false);
-        dataList.add(titleSubtitleSwitchData);
+        dataList.add(POSITION_TITLE_SUBTITLE_SWITCH_EXAMPLE, titleSubtitleSwitchData);
 
         dataList.add(DividerData.create());
 
         // Title, Subtitle & Checkbox
         TitleSubtitleCheckbox titleSubtitleCheckbox = new TitleSubtitleCheckbox("Title, Subtitle & Checkbox", "Subtitle is here", false);
-        dataList.add(titleSubtitleCheckbox);
+        dataList.add(POSITION_TITLE_SUBTITLE_CHECKBOX_EXAMPLE, titleSubtitleCheckbox);
 
         dataList.add(DividerData.create());
 
         // Title & Secondary title
         TitleSecondaryTitleData titleSecondaryTitleData = new TitleSecondaryTitleData("Title & Secondary title", "8");
-        dataList.add(titleSecondaryTitleData);
+        dataList.add(POSITION_TITLE_SECONDARY_TITLE_EXAMPLE, titleSecondaryTitleData);
+
+        dataList.add(DividerData.create());
+
+        // Title, Icon, SeekBar & Text
+        TitleIconSeekBarTextData titleIconSeekBarTextData = new TitleIconSeekBarTextData(R.drawable.ic_android_black_24dp, "Title, Icon, SeekBar & Text");
+        titleIconSeekBarTextData.setSeekBarMaximumValue(1000);
+        titleIconSeekBarTextData.setSeekBarColor(ContextCompat.getColor(context, R.color.red));
+        titleIconSeekBarTextData.setSeekBarThumbColor(ContextCompat.getColor(context, R.color.blue));
+        dataList.add(POSITION_TITLE_ICON_SEEKBAR_TEXT_EXAMPLE, titleIconSeekBarTextData);
+
+        dataList.add(DividerData.create());
+
+        // Title, Up & Down buttons and Text
+        TitleUpDownValueData titleUpDownValueData = new TitleUpDownValueData("Title, Up & Down buttons and Text");
+        titleUpDownValueData.setCurrentValue(50);
+        dataList.add(POSITION_TITLE_UP_DOWN_VALUE, titleUpDownValueData);
 
         return dataList;
     }
 ````
 
 And the output is:
- ![alt text]( https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/all-items.png "Setting screen example")
- 
+![](https://github.com/UdiOshi85/GenericSettings/blob/master/tut-pics/106.gif)
+
 ## Dev note - To handle clicks, you should override the functions in BaseSettingsPresenter class
 
 ## Contribution

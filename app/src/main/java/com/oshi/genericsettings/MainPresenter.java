@@ -1,6 +1,7 @@
 package com.oshi.genericsettings;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Toast;
 
@@ -9,11 +10,13 @@ import com.oshi.libgenericsettings.data.DividerData;
 import com.oshi.libgenericsettings.data.HeaderData;
 import com.oshi.libgenericsettings.data.IconTitleData;
 import com.oshi.libgenericsettings.data.TitleData;
+import com.oshi.libgenericsettings.data.TitleIconSeekBarTextData;
 import com.oshi.libgenericsettings.data.TitleSecondaryTitleData;
 import com.oshi.libgenericsettings.data.TitleSubtitleCheckbox;
 import com.oshi.libgenericsettings.data.TitleSubtitleData;
 import com.oshi.libgenericsettings.data.TitleSubtitleSwitchData;
 import com.oshi.libgenericsettings.data.TitleSwitchData;
+import com.oshi.libgenericsettings.data.TitleUpDownValueData;
 import com.oshi.libgenericsettings.presenter.BaseSettingsPresenter;
 
 import java.util.ArrayList;
@@ -28,6 +31,8 @@ public class MainPresenter extends BaseSettingsPresenter {
     private static int POSITION_TITLE_SUBTITLE_SWITCH_EXAMPLE = 9;
     private static int POSITION_TITLE_SUBTITLE_CHECKBOX_EXAMPLE = 11;
     private static int POSITION_TITLE_SECONDARY_TITLE_EXAMPLE = 13;
+    private static int POSITION_TITLE_ICON_SEEKBAR_TEXT_EXAMPLE = 15;
+    private static int POSITION_TITLE_UP_DOWN_VALUE = 17;
 
     private OnSettingsChangedListener listener;
 
@@ -87,6 +92,22 @@ public class MainPresenter extends BaseSettingsPresenter {
         // Title & Secondary title
         TitleSecondaryTitleData titleSecondaryTitleData = new TitleSecondaryTitleData("Title & Secondary title", "8");
         dataList.add(POSITION_TITLE_SECONDARY_TITLE_EXAMPLE, titleSecondaryTitleData);
+
+        dataList.add(DividerData.create());
+
+        // Title, Icon, SeekBar & Text
+        TitleIconSeekBarTextData titleIconSeekBarTextData = new TitleIconSeekBarTextData(R.drawable.ic_android_black_24dp, "Title, Icon, SeekBar & Text");
+        titleIconSeekBarTextData.setSeekBarMaximumValue(1000);
+        titleIconSeekBarTextData.setSeekBarColor(ContextCompat.getColor(context, R.color.red));
+        titleIconSeekBarTextData.setSeekBarThumbColor(ContextCompat.getColor(context, R.color.blue));
+        dataList.add(POSITION_TITLE_ICON_SEEKBAR_TEXT_EXAMPLE, titleIconSeekBarTextData);
+
+        dataList.add(DividerData.create());
+
+        // Title, Up & Down buttons and Text
+        TitleUpDownValueData titleUpDownValueData = new TitleUpDownValueData("Title, Up & Down buttons and Text");
+        titleUpDownValueData.setCurrentValue(50);
+        dataList.add(POSITION_TITLE_UP_DOWN_VALUE, titleUpDownValueData);
 
         return dataList;
     }
@@ -175,6 +196,24 @@ public class MainPresenter extends BaseSettingsPresenter {
             data.setSecondaryTitle(Integer.toString(secondary));
 
             listener.notifyItemChanged(position);
+        }
+    }
+
+    @Override
+    public void onTitleIconSeekBarTextChanged(View view, TitleIconSeekBarTextData data, int position) {
+        super.onTitleIconSeekBarTextChanged(view, data, position);
+
+        if (position == POSITION_TITLE_ICON_SEEKBAR_TEXT_EXAMPLE) {
+            Toast.makeText(view.getContext(), "Title, Icon, SeekBar & Text value changed = " + data.getSeekBarCurrentProgress(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onTitleUpDownValueChanged(View view, TitleUpDownValueData data, int position) {
+        super.onTitleUpDownValueChanged(view, data, position);
+
+        if (position == POSITION_TITLE_UP_DOWN_VALUE) {
+            Toast.makeText(view.getContext(), "Title, Up & Down buttons and Text value changed = " + data.getCurrentValue(), Toast.LENGTH_SHORT).show();
         }
     }
 }

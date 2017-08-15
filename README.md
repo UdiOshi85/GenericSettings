@@ -15,8 +15,12 @@ Android generic settings library to handle all kinds of items in your applicatio
 
 ## Introduction
 
-As an android developer for 6 years, many times I've started new project (For myself or in my work) and had to do Settings Activity over and over again.
-So I had enough. wasted to much time in my life doing same code every time.
+As an android developer for 6 years, there has been many times I've started a new personal or work project and had to redo the Settings Activity over and over again.
+I've had enough, I've wasted too much time in my life doing the same code every time.
+
+* But why not using [Android native Settings Preferences](https://developer.android.com/guide/topics/ui/settings.html)?
+It provides an easy implementation via XML and works directly with SharedPreferences. However to me it's kinda old approach on taking care of the UI. Once you need to open a specific nested PreferenceScreen or send analytics it gets very frustrating.
+So I decided to build my own Generic settings library using the latest Android library such as Data Binding & ConstraintLayout for the views.
 
 #### Native settings preference - Pros & Cons
 
@@ -27,10 +31,6 @@ So I had enough. wasted to much time in my life doing same code every time.
 ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `Very difficult to navigate into nested preference screens and control back press`  
 ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `Very difficult to add & manage custom preference with custom UI`  
 
-
-* But why not using [Android native Settings Preferences](https://developer.android.com/guide/topics/ui/settings.html)?
-It provides an easy implementation via XML and works directly with SharedPreferences. But to me it's kinda old approach and take care of the UI. But once you need to open a specific nested PreferenceScreen or send analytics once you clicked it's get very frustrating.
-So I decided to build my own Generic settings library using the lates android library such as Data Binding & ConstraintLayout for the views.
 
 ## Compile
 
@@ -187,5 +187,5 @@ And the output is:
 ## Dev note - To handle clicks, you should override the functions in BaseSettingsPresenter class
 
 ## Contribution
-This library was built for all developers who don't wish to do all the Settings screen logic over and over again. You can do whatever you want with this library. No contribution is needed. the You can [clone/download full library code](https://github.com/UdiOshi85/libGenericSettings).  
-I do wish to get your feedback about this library, I will maintain it as long as i'm considering myself as an android developer so feel free to open issues / ask for new viewtypes / or just STAR this page.
+This library was built for all developers who do not wish to do the Settings screen logic over and over again. You can do whatever you want with this library. No contribution is needed. You can [clone/download full library code](https://github.com/UdiOshi85/libGenericSettings).  
+I do wish to get your feedback about this library, I will maintain it as long as I'm considering myself an Android developer. Feel free to open issues / ask for new viewtypes / or just STAR this page.

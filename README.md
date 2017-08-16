@@ -4,8 +4,8 @@ Android generic settings library to handle all kinds of items in your applicatio
 
 [ ![Download](https://api.bintray.com/packages/udioshi85/maven/libGenericSettings/images/download.svg) ](https://bintray.com/udioshi85/maven/libGenericSettings/_latestVersion)
 [ ![Android API Level](https://img.shields.io/badge/API-15%2B-blue.svg) ]()
+[ ![Library license](https://img.shields.io/badge/License-Apache--2.0-blue.svg) ]()
 [![CircleCI](https://circleci.com/gh/UdiOshi85/GenericSettings.svg?style=svg)](https://circleci.com/gh/UdiOshi85/GenericSettings)
-
 
 ### Table of Contents
 - [Introduction](#introduction)

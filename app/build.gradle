@@ -34,10 +34,10 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    compile 'com.android.support:appcompat-v7:25.4.0'
+    compile 'com.android.support:appcompat-v7:26.0.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:design:25.4.0'
+    compile 'com.android.support:design:26.0.1'
     compile 'com.github.udioshi85:libGenericSettings:1.0.6'
 //    compile project(path: ':libGenericSettings')
 }

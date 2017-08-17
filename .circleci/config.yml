@@ -16,18 +16,18 @@ jobs:
        - run:
             name: Run Tests
             command: ./gradlew lint test
-      - run:
-                name: Download Dependencies
-                command: ./gradlew androidDependencies
-      - save_cache:
-                paths:
+       - run:
+            name: Download Dependencies
+            command: ./gradlew androidDependencies
+       - save_cache:
+            paths:
                   - ~/.gradle
-                key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
-      - run:
-                name: Run Tests
-                command: ./gradlew lint test
-      - store_artifacts:
-                path: app/build/reports
-                destination: reports
-      - store_test_results:
-                path: app/build/test-results
+            key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+       - run:
+            name: Run Tests
+            command: ./gradlew lint test
+       - store_artifacts:
+            path: app/build/reports
+            destination: reports
+       - store_test_results:
+            path: app/build/test-results

@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.oshi.libgenericsettings.data.BaseViewTypeData;
 import com.oshi.libgenericsettings.data.DividerData;
+import com.oshi.libgenericsettings.data.ExpandableTitleSimpleItemsData;
 import com.oshi.libgenericsettings.data.HeaderData;
 import com.oshi.libgenericsettings.data.IconTitleData;
 import com.oshi.libgenericsettings.data.TitleData;
@@ -20,6 +21,7 @@ import com.oshi.libgenericsettings.data.TitleUpDownValueData;
 import com.oshi.libgenericsettings.presenter.BaseSettingsPresenter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainPresenter extends BaseSettingsPresenter {
@@ -33,6 +35,7 @@ public class MainPresenter extends BaseSettingsPresenter {
     private static int POSITION_TITLE_SECONDARY_TITLE_EXAMPLE = 13;
     private static int POSITION_TITLE_ICON_SEEKBAR_TEXT_EXAMPLE = 15;
     private static int POSITION_TITLE_UP_DOWN_VALUE = 17;
+    private static int POSITION_EXPANDABLE_TITLE_ITEMS = 19;
 
     private OnSettingsChangedListener listener;
 
@@ -107,7 +110,17 @@ public class MainPresenter extends BaseSettingsPresenter {
         // Title, Up & Down buttons and Text
         TitleUpDownValueData titleUpDownValueData = new TitleUpDownValueData("Title, Up & Down buttons and Text");
         titleUpDownValueData.setCurrentValue(50);
+        titleUpDownValueData.setUpDownColor(R.color.red);
         dataList.add(POSITION_TITLE_UP_DOWN_VALUE, titleUpDownValueData);
+
+        dataList.add(DividerData.create());
+
+        // Expandable Title & Items
+        ExpandableTitleSimpleItemsData expandableTitleSimpleItemsData = new ExpandableTitleSimpleItemsData();
+        expandableTitleSimpleItemsData.setTitle("Expandable Title & Items");
+        expandableTitleSimpleItemsData.setItems(Arrays.asList("First", "Second", "Third", "Fourth"));
+
+        dataList.add(expandableTitleSimpleItemsData);
 
         return dataList;
     }
@@ -215,5 +228,13 @@ public class MainPresenter extends BaseSettingsPresenter {
         if (position == POSITION_TITLE_UP_DOWN_VALUE) {
             Toast.makeText(view.getContext(), "Title, Up & Down buttons and Text value changed = " + data.getCurrentValue(), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void onExpandableSimpleItemClicked(View view, ExpandableTitleSimpleItemsData data, int parentPosition, int subItemPosition) {
+        super.onExpandableSimpleItemClicked(view, data, parentPosition, subItemPosition);
+
+        Toast.makeText(view.getContext(), "Expandable simple item click! (" + parentPosition + ", " + subItemPosition + ")", Toast.LENGTH_SHORT).show();
+
     }
 }

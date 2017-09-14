@@ -153,8 +153,8 @@ public class MainPresenter extends BaseSettingsPresenter {
         dataList.add(DividerData.create());
 
         // Title, Subtitle & Checkbox
-        TitleSubtitleCheckbox titleSubtitleCheckbox = new TitleSubtitleCheckbox("Title, Subtitle & Checkbox", "Subtitle is here", false);
-        dataList.add(POSITION_TITLE_SUBTITLE_CHECKBOX_EXAMPLE, titleSubtitleCheckbox);
+        TitleSubtitleCheckbox titleSubtitleCheckboxData = new TitleSubtitleCheckbox("Title, Subtitle & Checkbox", "Subtitle is here", false);
+        dataList.add(POSITION_TITLE_SUBTITLE_CHECKBOX_EXAMPLE, titleSubtitleCheckboxData);
 
         dataList.add(DividerData.create());
 

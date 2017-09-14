@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/divider"
+        android:icon="@drawable/ic_border_horizontal_white_24dp"
+        app:showAsAction="ifRoom"
+        android:title="@string/text_toggle_divider"
+        android:contentDescription="@string/text_toggle_divider" />
+
+</menu>

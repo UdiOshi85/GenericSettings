@@ -8,13 +8,36 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.oshi.genericsettings.MainActivity">
+        <activity
+            android:name="com.oshi.genericsettings.main.activity.main.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".main.activity.basic.BasicTypesActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".main.activity.checkable.CheckableTypesActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".main.activity.switchable.SwitchableTypesActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".main.activity.seekbar.SeekBarTypesActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".main.activity.expandable.ExpandableTypesActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

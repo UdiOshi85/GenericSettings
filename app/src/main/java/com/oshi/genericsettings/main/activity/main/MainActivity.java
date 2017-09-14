@@ -1,10 +1,12 @@
-package com.oshi.genericsettings;
+package com.oshi.genericsettings.main.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.oshi.genericsettings.R;
+import com.oshi.genericsettings.main.presenter.MainScreenPresenter;
 import com.oshi.libgenericsettings.adapter.SettingsAdapter;
 import com.oshi.libgenericsettings.presenter.ISettingsPresenter;
 
@@ -20,13 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-        settingsPresenter = new MainPresenter(new ISettingsPresenter.OnSettingsChangedListener() {
-            @Override
-            public void notifyItemChanged(int position) {
-                adapter.notifyItemChanged(position);
-            }
-        });
+        settingsPresenter = new MainScreenPresenter();
         adapter = new SettingsAdapter(MainActivity.this, settingsPresenter);
         recyclerView.setAdapter(adapter);
     }

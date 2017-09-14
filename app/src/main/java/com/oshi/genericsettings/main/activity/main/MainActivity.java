@@ -1,12 +1,10 @@
-package com.oshi.genericsettings.main.activity;
+package com.oshi.genericsettings.main.activity.main;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.oshi.genericsettings.R;
-import com.oshi.genericsettings.main.presenter.MainScreenPresenter;
 import com.oshi.libgenericsettings.adapter.SettingsAdapter;
 import com.oshi.libgenericsettings.presenter.ISettingsPresenter;
 

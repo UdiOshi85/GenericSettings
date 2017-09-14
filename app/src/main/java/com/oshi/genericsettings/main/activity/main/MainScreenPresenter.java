@@ -1,4 +1,4 @@
-package com.oshi.genericsettings.main.presenter;
+package com.oshi.genericsettings.main.activity.main;
 
 import android.content.Context;
 import android.view.View;

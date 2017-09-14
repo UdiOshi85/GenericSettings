@@ -8,6 +8,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 
 import com.oshi.genericsettings.R;
 import com.oshi.libgenericsettings.adapter.SettingsAdapter;
@@ -42,8 +43,27 @@ public class ExpandableTypesActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         coordinatorLayout = findViewById(R.id.coordinatorLayout);
 
+        expandableTypesPresenter = new ExpandableTypesPresenter(coordinatorLayout, new ISettingsPresenter.OnSettingsChangedListener() {
+            @Override
+            public void notifyItemChanged(int position) {
+                adapter.notifyItemChanged(position);
+            }
+        });
+        adapter = new SettingsAdapter(ExpandableTypesActivity.this, expandableTypesPresenter);
+        recyclerView.setAdapter(adapter);
 
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
 
+        int itemId = item.getItemId();
+
+        if (itemId == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

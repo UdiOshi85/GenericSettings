@@ -45,3 +45,16 @@ dependencies {
 </dependency>
 ````
 
+## Summary
+I’ve created a sample app which covers all the supported types/views
+* Sample app code
+* Issues? Open issue on GitHub
+* Question & Other help? Send email udioshi@gmail.com
+* This library was built for all developers who do not wish
+to do the Settings screen logic over and over again. You
+can do whatever you want with this library. No
+contribution is needed. You can clone/download full
+library code. I do wish to get your feedback about this
+library; I will maintain it as long as I’m considering
+myself an Android developer. Feel free to open issues /
+ask for new viewtypes / or just STAR this page.

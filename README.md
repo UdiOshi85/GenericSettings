@@ -7,6 +7,7 @@ Android generic settings library to handle all kinds of items in your applicatio
 [ ![Library license](https://img.shields.io/badge/License-Apache--2.0-blue.svg) ]()
 [![CircleCI](https://circleci.com/gh/UdiOshi85/GenericSettings.svg?style=svg)](https://circleci.com/gh/UdiOshi85/GenericSettings)
 
+
 [![Example app](https://img.youtube.com/vi/ywjI1ErnBgw/0.jpg)](https://www.youtube.com/watch?v=ywjI1ErnBgw)
 
 As an android developer for 6 years, there has been many

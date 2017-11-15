@@ -6,6 +6,7 @@ Android generic settings library to handle all kinds of items in your applicatio
 [ ![Android API Level](https://img.shields.io/badge/API-15%2B-blue.svg) ]()
 [ ![Library license](https://img.shields.io/badge/License-Apache--2.0-blue.svg) ]()
 [![CircleCI](https://circleci.com/gh/UdiOshi85/GenericSettings.svg?style=svg)](https://circleci.com/gh/UdiOshi85/GenericSettings)
+[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Android%20Generic%20settings%20library-green.svg?style=flat )]( https://android-arsenal.com/details/1/6452 )
 
 ### Watch the video
 [![Example app](https://img.youtube.com/vi/ywjI1ErnBgw/0.jpg)](https://www.youtube.com/watch?v=ywjI1ErnBgw)

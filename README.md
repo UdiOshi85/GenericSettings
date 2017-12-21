@@ -33,7 +33,7 @@ repositories {
 dependencies {
   ...
   ...
-  compile 'com.github.udioshi85:libGenericSettings:1.1'
+  compile 'com.github.udioshi85:libGenericSettings:1.2'
 }
 ````  
 

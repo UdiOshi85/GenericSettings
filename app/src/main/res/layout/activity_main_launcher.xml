@@ -50,15 +50,27 @@
         app:lottie_loop="true"
         app:lottie_autoPlay="true" />
 
+
     <Button
-        android:id="@+id/seeExamplesButton"
-        android:text="SHOW ME EXAMPLES!"
+        android:id="@+id/startJava"
+        android:text="Start (JAVA)"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/startKotlin"
+        android:layout_margin="@dimen/dimen_8_dp"
+        android:layout_width="@dimen/dimen_0_dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/startKotlin"
+        android:text="Start (Kotlin)"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/startJava"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="@dimen/dimen_8_dp"
         android:layout_width="@dimen/dimen_0_dp"
         android:layout_height="wrap_content" />
+
 
 
 </android.support.constraint.ConstraintLayout>

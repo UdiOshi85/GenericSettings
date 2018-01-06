@@ -15,6 +15,8 @@ import com.oshi.libgenericsettings.data.TitleSubtitleData;
 import com.oshi.libgenericsettings.data.TitleSubtitleExtraData;
 import com.oshi.libgenericsettings.presenter.BaseSettingsPresenter;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +32,7 @@ public class BasicTypesDividerPresenter extends BaseSettingsPresenter {
     private static final int POSITION_COLORED_SINGLE_TITLE = 9;
     private static final int POSITION_COLORED_TWO_ROWS = 11;
     private static final int POSITION_COLORED_THREE_ROWS = 13;
-    private static final int POSITION_COLORED_TITLE_SUBTITLE = 15;
+    private static final int POSITION_COLORED_TITLE_STITLE = 15;
 
     private CoordinatorLayout coordinatorLayout;
 
@@ -92,7 +94,7 @@ public class BasicTypesDividerPresenter extends BaseSettingsPresenter {
         TitleSecondaryTitleData coloredTitleSecondaryTitleData = new TitleSecondaryTitleData("Title & secondary text", "SECONDARY");
         coloredTitleSecondaryTitleData.setTitleColor(R.color.red);
         coloredTitleSecondaryTitleData.setSecondaryTitleColor(R.color.blue);
-        items.add(POSITION_COLORED_TITLE_SUBTITLE, coloredTitleSecondaryTitleData);
+        items.add(POSITION_COLORED_TITLE_STITLE, coloredTitleSecondaryTitleData);
 
         return items;
     }
@@ -125,7 +127,14 @@ public class BasicTypesDividerPresenter extends BaseSettingsPresenter {
         } else if (position == POSITION_COLORED_THREE_ROWS) {
             Snackbar.make(coordinatorLayout, "Colored three rows clicked", Snackbar.LENGTH_SHORT).show();
         }
-
     }
 
+    @Override
+    public void onTitleSecondaryTitleClick(@NotNull View view, @NotNull TitleSecondaryTitleData data, int position) {
+        if (position == POSITION_TITLE_STITLE) {
+            Snackbar.make(coordinatorLayout, "Title & Secondary title clicked", Snackbar.LENGTH_SHORT).show();
+        } else if (position == POSITION_COLORED_TITLE_STITLE) {
+            Snackbar.make(coordinatorLayout, "Colored Title & Secondary title clicked", Snackbar.LENGTH_SHORT).show();
+        }
+    }
 }

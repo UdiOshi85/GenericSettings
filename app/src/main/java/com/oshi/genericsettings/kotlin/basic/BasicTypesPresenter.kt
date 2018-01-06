@@ -94,4 +94,12 @@ class BasicTypesPresenter(var coordinatorLayout: CoordinatorLayout) : BaseSettin
             Snackbar.make(coordinatorLayout, "Colored three rows clicked", Snackbar.LENGTH_SHORT).show()
         }
     }
+
+    override fun onTitleSecondaryTitleClick(view: View, data: TitleSecondaryTitleData, position: Int) {
+        if (position == POSITION_TITLE_STITLE) {
+            Snackbar.make(coordinatorLayout, "Title & Secondary title clicked", Snackbar.LENGTH_SHORT).show()
+        } else if (position == POSITION_COLORED_TITLE_STITLE) {
+            Snackbar.make(coordinatorLayout, "Colored Title & Secondary title clicked", Snackbar.LENGTH_SHORT).show()
+        }
+    }
 }

@@ -17,12 +17,12 @@ class BasicTypesDividerPresenter(var coordinatorLayout: CoordinatorLayout) : Bas
         private const val POSITION_SINGLE_TITLE = 1
         private const val POSITION_TWO_ROWS = 3
         private const val POSITION_THREE_ROWS = 5
-        private const val POSITION_TITLE_SUBTITLE = 7
+        private const val POSITION_TITLE_STITLE = 7
         private const val POSITION_COLORED_HEADER = 8
         private const val POSITION_COLORED_SINGLE_TITLE = 9
         private const val POSITION_COLORED_TWO_ROWS = 11
         private const val POSITION_COLORED_THREE_ROWS = 13
-        private const val POSITION_COLORED_TITLE_SUBTITLE = 15
+        private const val POSITION_COLORED_TITLE_STITLE = 15
     }
 
 
@@ -49,7 +49,7 @@ class BasicTypesDividerPresenter(var coordinatorLayout: CoordinatorLayout) : Bas
         items.add(DividerData.create());
 
         val titleSecondaryTitleData = TitleSecondaryTitleData("Title & secondary text", "SECONDARY")
-        items.add(POSITION_TITLE_SUBTITLE, titleSecondaryTitleData)
+        items.add(POSITION_TITLE_STITLE, titleSecondaryTitleData)
 
         val coloredHeader = HeaderData("COLORED BASIC ITEMS")
         coloredHeader.headerColor = R.color.blue
@@ -79,7 +79,7 @@ class BasicTypesDividerPresenter(var coordinatorLayout: CoordinatorLayout) : Bas
         val coloredTitleSecondaryTitleData = TitleSecondaryTitleData("Title & secondary text", "SECONDARY")
         coloredTitleSecondaryTitleData.titleColor = R.color.red
         coloredTitleSecondaryTitleData.secondaryTitleColor = R.color.blue
-        items.add(POSITION_COLORED_TITLE_SUBTITLE, coloredTitleSecondaryTitleData)
+        items.add(POSITION_COLORED_TITLE_STITLE, coloredTitleSecondaryTitleData)
 
         return items
     }
@@ -108,6 +108,14 @@ class BasicTypesDividerPresenter(var coordinatorLayout: CoordinatorLayout) : Bas
             Snackbar.make(coordinatorLayout, "Three rows clicked", Snackbar.LENGTH_SHORT).show()
         } else if (position == POSITION_COLORED_THREE_ROWS) {
             Snackbar.make(coordinatorLayout, "Colored three rows clicked", Snackbar.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onTitleSecondaryTitleClick(view: View, data: TitleSecondaryTitleData, position: Int) {
+        if (position == POSITION_TITLE_STITLE) {
+            Snackbar.make(coordinatorLayout, "Title & Secondary title clicked", Snackbar.LENGTH_SHORT).show()
+        } else if (position == POSITION_COLORED_TITLE_STITLE) {
+            Snackbar.make(coordinatorLayout, "Colored Title & Secondary title clicked", Snackbar.LENGTH_SHORT).show()
         }
     }
 

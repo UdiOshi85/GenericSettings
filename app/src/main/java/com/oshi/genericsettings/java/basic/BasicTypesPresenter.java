@@ -14,6 +14,8 @@ import com.oshi.libgenericsettings.data.TitleSubtitleData;
 import com.oshi.libgenericsettings.data.TitleSubtitleExtraData;
 import com.oshi.libgenericsettings.presenter.BaseSettingsPresenter;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -112,6 +114,14 @@ public class BasicTypesPresenter extends BaseSettingsPresenter {
         } else if (position == POSITION_COLORED_THREE_ROWS) {
             Snackbar.make(coordinatorLayout, "Colored three rows clicked", Snackbar.LENGTH_SHORT).show();
         }
+    }
 
+    @Override
+    public void onTitleSecondaryTitleClick(@NotNull View view, @NotNull TitleSecondaryTitleData data, int position) {
+        if (position == POSITION_TITLE_STITLE) {
+            Snackbar.make(coordinatorLayout, "Title & Secondary title clicked", Snackbar.LENGTH_SHORT).show();
+        } else if (position == POSITION_COLORED_TITLE_STITLE) {
+            Snackbar.make(coordinatorLayout, "Colored Title & Secondary title clicked", Snackbar.LENGTH_SHORT).show();
+        }
     }
 }

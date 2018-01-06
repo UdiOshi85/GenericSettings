@@ -8,6 +8,7 @@ import android.view.View;
 import com.oshi.genericsettings.R;
 import com.oshi.libgenericsettings.data.BaseViewTypeData;
 import com.oshi.genericsettings.java.utils.ArrayUtils;
+import com.oshi.libgenericsettings.data.ExpandableTitleBulletItemsData;
 import com.oshi.libgenericsettings.data.ExpandableTitleCheckableItemsData;
 import com.oshi.libgenericsettings.data.ExpandableTitleSimpleItemsData;
 import com.oshi.libgenericsettings.data.ExpandableTitleSubtitleCheckableItemsData;
@@ -26,11 +27,12 @@ public class ExpandableTypesPresenter extends BaseSettingsPresenter {
     private static final int POSITION_EXPANDABLE_TITLE_SUBTITLE_SIMPLE_ITEMS = 2;
     private static final int POSITION_EXPANDABLE_TITLE_CHECKABLE_ITEMS = 3;
     private static final int POSITION_EXPANDABLE_TITLE_SUBTITLE_CHECKABLE_ITEMS = 4;
-    private static final int POSITION_COLORED_HEADER = 5;
-    private static final int POSITION_COLORED_EXPANDABLE_TITLE_SIMPLE_ITEMS = 6;
-    private static final int POSITION_COLORED_EXPANDABLE_TITLE_SUBTITLE_SIMPLE_ITEMS = 7;
-    private static final int POSITION_COLORED_EXPANDABLE_TITLE_CHECKABLE_ITEMS = 8;
-    private static final int POSITION_COLORED_EXPANDABLE_TITLE_SUBTITLE_CHECKABLE_ITEMS = 9;
+    private static final int POSITION_EXPANDABLE_TITLE_BULLET_ITEMS = 5;
+    private static final int POSITION_COLORED_HEADER = 6;
+    private static final int POSITION_COLORED_EXPANDABLE_TITLE_SIMPLE_ITEMS = 7;
+    private static final int POSITION_COLORED_EXPANDABLE_TITLE_SUBTITLE_SIMPLE_ITEMS = 8;
+    private static final int POSITION_COLORED_EXPANDABLE_TITLE_CHECKABLE_ITEMS = 9;
+    private static final int POSITION_COLORED_EXPANDABLE_TITLE_SUBTITLE_CHECKABLE_ITEMS = 10;
 
 
     private CoordinatorLayout coordinatorLayout;
@@ -61,6 +63,9 @@ public class ExpandableTypesPresenter extends BaseSettingsPresenter {
 
         ExpandableTitleSubtitleCheckableItemsData expandableTitleSubtitleCheckableItemsData = new ExpandableTitleSubtitleCheckableItemsData("Expandable title with subtitle", "Checkable items", ArrayUtils.getNewCheckableItemsList());
         items.add(POSITION_EXPANDABLE_TITLE_SUBTITLE_CHECKABLE_ITEMS, expandableTitleSubtitleCheckableItemsData);
+
+        ExpandableTitleBulletItemsData expandableTitleBulletItemsData = new ExpandableTitleBulletItemsData("Expandable title with BULLET items", ArrayUtils.getNewSimpleItemsList());
+        items.add(POSITION_EXPANDABLE_TITLE_BULLET_ITEMS, expandableTitleBulletItemsData);
 
         HeaderData coloredHeaderData = new HeaderData("COLORED EXPANDABLE TYPES");
         coloredHeaderData.setHeaderColor(R.color.blue);

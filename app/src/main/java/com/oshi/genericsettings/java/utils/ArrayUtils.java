@@ -19,4 +19,8 @@ public class ArrayUtils {
                 new CheckableSubItem("Third"));
     }
 
+    public static List<String> createSimpleItemsArray(String... items) {
+        return Arrays.asList(items);
+    }
+
 }

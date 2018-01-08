@@ -1,9 +1,11 @@
 package com.oshi.genericsettings.java.expandable;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.oshi.genericsettings.R;
 import com.oshi.libgenericsettings.data.BaseViewTypeData;
@@ -11,10 +13,13 @@ import com.oshi.genericsettings.java.utils.ArrayUtils;
 import com.oshi.libgenericsettings.data.ExpandableTitleBulletItemsData;
 import com.oshi.libgenericsettings.data.ExpandableTitleCheckableItemsData;
 import com.oshi.libgenericsettings.data.ExpandableTitleSimpleItemsData;
+import com.oshi.libgenericsettings.data.ExpandableTitleSubtitleBulletItemsData;
 import com.oshi.libgenericsettings.data.ExpandableTitleSubtitleCheckableItemsData;
 import com.oshi.libgenericsettings.data.ExpandableTitleSubtitleSimpleItemsData;
 import com.oshi.libgenericsettings.data.HeaderData;
 import com.oshi.libgenericsettings.presenter.BaseSettingsPresenter;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,11 +33,14 @@ public class ExpandableTypesPresenter extends BaseSettingsPresenter {
     private static final int POSITION_EXPANDABLE_TITLE_CHECKABLE_ITEMS = 3;
     private static final int POSITION_EXPANDABLE_TITLE_SUBTITLE_CHECKABLE_ITEMS = 4;
     private static final int POSITION_EXPANDABLE_TITLE_BULLET_ITEMS = 5;
-    private static final int POSITION_COLORED_HEADER = 6;
-    private static final int POSITION_COLORED_EXPANDABLE_TITLE_SIMPLE_ITEMS = 7;
-    private static final int POSITION_COLORED_EXPANDABLE_TITLE_SUBTITLE_SIMPLE_ITEMS = 8;
-    private static final int POSITION_COLORED_EXPANDABLE_TITLE_CHECKABLE_ITEMS = 9;
-    private static final int POSITION_COLORED_EXPANDABLE_TITLE_SUBTITLE_CHECKABLE_ITEMS = 10;
+    private static final int POSITION_EXPANDABLE_TITLE_SUBTITLE_BULLET_ITEMS = 6;
+    private static final int POSITION_COLORED_HEADER = 7;
+    private static final int POSITION_COLORED_EXPANDABLE_TITLE_SIMPLE_ITEMS = 8;
+    private static final int POSITION_COLORED_EXPANDABLE_TITLE_SUBTITLE_SIMPLE_ITEMS = 9;
+    private static final int POSITION_COLORED_EXPANDABLE_TITLE_CHECKABLE_ITEMS = 10;
+    private static final int POSITION_COLORED_EXPANDABLE_TITLE_SUBTITLE_CHECKABLE_ITEMS = 11;
+    private static final int POSITION_COLORED_EXPANDABLE_TITLE_BULLET_ITEMS = 12;
+    private static final int POSITION_COLORED_EXPANDABLE_TITLE_SUBTITLE_BULLET_ITEMS = 13;
 
 
     private CoordinatorLayout coordinatorLayout;
@@ -67,6 +75,9 @@ public class ExpandableTypesPresenter extends BaseSettingsPresenter {
         ExpandableTitleBulletItemsData expandableTitleBulletItemsData = new ExpandableTitleBulletItemsData("Expandable title with BULLET items", ArrayUtils.getNewSimpleItemsList());
         items.add(POSITION_EXPANDABLE_TITLE_BULLET_ITEMS, expandableTitleBulletItemsData);
 
+        ExpandableTitleSubtitleBulletItemsData expandableTitleSubtitleBulletItemsData = new ExpandableTitleSubtitleBulletItemsData("Expandable title, Subtitle & BULLET items", "I'm just a simple subtitle", ArrayUtils.getNewSimpleItemsList());
+        items.add(POSITION_EXPANDABLE_TITLE_SUBTITLE_BULLET_ITEMS, expandableTitleSubtitleBulletItemsData);
+
         HeaderData coloredHeaderData = new HeaderData("COLORED EXPANDABLE TYPES");
         coloredHeaderData.setHeaderColor(R.color.blue);
         items.add(POSITION_COLORED_HEADER, coloredHeaderData);
@@ -99,11 +110,26 @@ public class ExpandableTypesPresenter extends BaseSettingsPresenter {
         coloredExpandableTitleSubtitleCheckableItemsData.setShouldShowDivider(true);
         items.add(POSITION_COLORED_EXPANDABLE_TITLE_SUBTITLE_CHECKABLE_ITEMS, coloredExpandableTitleSubtitleCheckableItemsData);
 
+        ExpandableTitleBulletItemsData coloredExpandableTitleBulletItemsData = new ExpandableTitleBulletItemsData("Colored Expandable title with BULLET items", ArrayUtils.getNewSimpleItemsList());
+        coloredExpandableTitleBulletItemsData.setTitleColor(R.color.orange);
+        coloredExpandableTitleBulletItemsData.setIconColor(R.color.orange);
+        coloredExpandableTitleBulletItemsData.setItemsColor(R.color.orange);
+        items.add(POSITION_COLORED_EXPANDABLE_TITLE_BULLET_ITEMS, coloredExpandableTitleBulletItemsData);
+
+        ExpandableTitleSubtitleBulletItemsData coloredExpandableTitleSubtitleBulletItemsData = new ExpandableTitleSubtitleBulletItemsData("Colored title & subtitle", "Color bullets!", ArrayUtils.getNewSimpleItemsList());
+        coloredExpandableTitleSubtitleBulletItemsData.setTitleColor(R.color.red);
+        coloredExpandableTitleSubtitleBulletItemsData.setSubtitleColor(R.color.red);
+        coloredExpandableTitleSubtitleBulletItemsData.setDividerColor(R.color.red);
+        coloredExpandableTitleSubtitleBulletItemsData.setIconColor(R.color.red);
+        coloredExpandableTitleSubtitleBulletItemsData.setItemsColor(R.color.red);
+        coloredExpandableTitleSubtitleBulletItemsData.setShouldShowDivider(true);
+        items.add(POSITION_COLORED_EXPANDABLE_TITLE_SUBTITLE_BULLET_ITEMS, coloredExpandableTitleSubtitleBulletItemsData);
+
         return items;
     }
 
     @Override
-    public void onExpandableCheckableItemClicked(View view, ExpandableTitleCheckableItemsData data, int parentPosition, int subItemPosition) {
+    public void onExpandableCheckableItemClicked(@NonNull View view, @NonNull ExpandableTitleCheckableItemsData data, int parentPosition, int subItemPosition) {
         Log.d(ExpandableTypesPresenter.class.getSimpleName(), "onExpandableCheckableItemClicked: Position: " + parentPosition + ", Sub item: " + subItemPosition);
         boolean oldVal = data.getItems().get(subItemPosition).isChecked();
         boolean newVal = !oldVal;
@@ -112,8 +138,15 @@ public class ExpandableTypesPresenter extends BaseSettingsPresenter {
     }
 
     @Override
-    public void onExpandableSimpleItemClicked(View view, ExpandableTitleSimpleItemsData data, int parentPosition, int subItemPosition) {
+    public void onExpandableSimpleItemClicked(@NonNull View view, @NonNull ExpandableTitleSimpleItemsData data, int parentPosition, int subItemPosition) {
         super.onExpandableSimpleItemClicked(view, data, parentPosition, subItemPosition);
         Log.d(ExpandableTypesPresenter.class.getSimpleName(), "onExpandableSimpleItemClicked: Position: " + parentPosition + ", Sub item: " + subItemPosition);
+        Toast.makeText(view.getContext(), data.getItems().get(subItemPosition) + " Selected", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onExpandableBulletItemClicked(@NotNull View view, @NotNull ExpandableTitleBulletItemsData data, int parentPosition, int subItemPosition) {
+        super.onExpandableBulletItemClicked(view, data, parentPosition, subItemPosition);
+        Toast.makeText(view.getContext(), data.getItems().get(subItemPosition) + " Selected", Toast.LENGTH_SHORT).show();
     }
 }

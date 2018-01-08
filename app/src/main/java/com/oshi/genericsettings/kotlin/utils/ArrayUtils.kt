@@ -2,6 +2,7 @@ package com.oshi.genericsettings.kotlin.utils
 
 import com.oshi.libgenericsettings.data.CheckableSubItem
 import java.util.*
+import kotlin.collections.ArrayList
 
 /**
  * Created by udioshi on 1/2/2018.
@@ -18,6 +19,12 @@ class ArrayUtils {
                     CheckableSubItem("First"),
                     CheckableSubItem("Second"),
                     CheckableSubItem("Third"))
+        }
+
+        fun createSimpleItemsArray(vararg items : String) : List<String> {
+            val list = ArrayList<String>()
+            list += items
+            return list
         }
     }
 

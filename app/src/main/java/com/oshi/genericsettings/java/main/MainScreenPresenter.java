@@ -22,7 +22,6 @@ public class MainScreenPresenter extends BaseSettingsPresenter {
     private static int POSITION_SWITCHABLE_TYPES = 2;
     private static int POSITION_SEEKBAR_TYPES = 3;
     private static int POSITION_EXPANDABLE_TYPES = 4;
-    private static int POSITION_CUSTOM_TYPES = 5;
 
 
     @Override
@@ -43,10 +42,8 @@ public class MainScreenPresenter extends BaseSettingsPresenter {
         dataList.add(POSITION_SEEKBAR_TYPES, seekBarTypes);
 
         TitleData expandableTypes = new TitleData("Expandable types");
-        dataList.add(expandableTypes);
+        dataList.add(POSITION_EXPANDABLE_TYPES, expandableTypes);
 
-        TitleData customViewsData = new TitleData("Custom types");
-        dataList.add(POSITION_CUSTOM_TYPES, customViewsData);
 
         return dataList;
     }

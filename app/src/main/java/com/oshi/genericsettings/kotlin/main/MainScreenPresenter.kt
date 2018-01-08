@@ -17,7 +17,6 @@ class MainScreenPresenter : BaseSettingsPresenter() {
         private const val POSITION_SWITCHABLE_TYPES = 2
         private const val POSITION_SEEKBAR_TYPES = 3
         private const val POSITION_EXPANDABLE_TYPES = 4
-        private const val POSITION_CUSTOM_TYPES = 5
     }
 
     override fun getItems(context: Context): List<BaseViewTypeData> {
@@ -38,9 +37,6 @@ class MainScreenPresenter : BaseSettingsPresenter() {
 
         val expandableTypes = TitleData("Expandable types")
         dataList.add(expandableTypes)
-
-        val customViewsData = TitleData("Custom types")
-        dataList.add(POSITION_CUSTOM_TYPES, customViewsData)
 
         return dataList
     }

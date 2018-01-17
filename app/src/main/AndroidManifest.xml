@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.oshi.genericsettings.main.activity.main.MainActivity"
+            android:name=".MainLauncherActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,25 +18,74 @@
             </intent-filter>
         </activity>
 
+
+        <!-- Main screen -->
+        <!-- Java -->
+        <activity android:name=".java.main.MainActivity" android:screenOrientation="portrait" />
+
+        <!-- Kotlin -->
+        <activity android:name=".kotlin.main.MainActivity" android:screenOrientation="portrait"/>
+        <!-- End of Main screen -->
+
+        <!-- Basic types -->
+        <!-- Java -->
         <activity
-            android:name=".main.activity.basic.BasicTypesActivity"
+            android:name=".java.basic.BasicTypesActivity"
             android:screenOrientation="portrait" />
 
+        <!-- Kotlin -->
         <activity
-            android:name=".main.activity.checkable.CheckableTypesActivity"
+            android:name="com.oshi.genericsettings.kotlin.basic.BasicTypeActivity"
+            android:screenOrientation="portrait" />
+        <!-- End of Basic types -->
+
+        <!-- Checkable types -->
+        <!-- Java -->
+        <activity
+            android:name=".java.checkable.CheckableTypesActivity"
             android:screenOrientation="portrait" />
 
+        <!-- Kotlin -->
         <activity
-            android:name=".main.activity.switchable.SwitchableTypesActivity"
+            android:name="com.oshi.genericsettings.kotlin.checkable.CheckableTypesActivity"
+            android:screenOrientation="portrait" />
+        <!-- End of Checkable types -->
+
+        <!-- Expandable types -->
+        <!-- Java -->
+        <activity
+            android:name=".java.expandable.ExpandableTypesActivity"
             android:screenOrientation="portrait" />
 
+        <!-- Kotlin -->
         <activity
-            android:name=".main.activity.seekbar.SeekBarTypesActivity"
+            android:name="com.oshi.genericsettings.kotlin.expandable.ExpandableTypesActivity"
+            android:screenOrientation="portrait" />
+        <!-- End of Expandable types -->
+
+        <!-- Switchable types -->
+        <!-- Java -->
+        <activity
+            android:name=".java.switchable.SwitchableTypesActivity"
             android:screenOrientation="portrait" />
 
+        <!-- Kotlin -->
         <activity
-            android:name=".main.activity.expandable.ExpandableTypesActivity"
+            android:name=".kotlin.switchable.SwitchableTypesActivity"
             android:screenOrientation="portrait" />
+        <!-- End of Switchable types -->
+
+        <!-- Seekbar types -->
+        <!-- Java -->
+        <activity
+            android:name=".java.seekbar.SeekBarTypesActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- Kotlin -->
+        <activity
+            android:name=".kotlin.seekbar.SeekBarTypesActivity"
+            android:screenOrientation="portrait" />
+        <!-- End of Seekbar types -->
 
     </application>
 

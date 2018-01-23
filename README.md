@@ -33,7 +33,7 @@ repositories {
 dependencies {
   ...
   ...
-  compile 'com.github.udioshi85:libGenericSettings:1.2'
+  compile 'com.github.udioshi85:libGenericSettings:1.3.1'
 }
 ````  
 
@@ -42,7 +42,7 @@ dependencies {
 <dependency>
   <groupId>com.github.udioshi85</groupId>
   <artifactId>libGenericSettings</artifactId>
-  <version>1.1</version>
+  <version>1.3.1</version>
   <type>pom</type>
 </dependency>
 ````

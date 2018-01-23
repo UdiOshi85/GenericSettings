@@ -1,22 +1,25 @@
 package com.oshi.genericsettings
 
 import android.content.Context
-import com.oshi.genericsettings.kotlin.utils.ArrayUtils
 import com.oshi.libgenericsettings.data.BaseViewTypeData
-import com.oshi.libgenericsettings.data.ExpandableTitleBulletItemsData
+import com.oshi.libgenericsettings.data.ExpandableTitleSubtitleBulletItemsData
 import com.oshi.libgenericsettings.helper.VERSIONS
 import com.oshi.libgenericsettings.presenter.BaseSettingsPresenter
+import java.util.*
 
 
 class WhatsNewPresenter : BaseSettingsPresenter() {
 
     override fun getItems(context: Context): List<BaseViewTypeData> {
 
-        val values = VERSIONS.values()
+        var values : Array<VERSIONS> = VERSIONS.values()
+        values = values.reversedArray()
+
         val items = ArrayList<BaseViewTypeData>()
 
         values.forEach {
-            val item = ExpandableTitleBulletItemsData(it.versionName, it.whatsNewItems)
+            val item = ExpandableTitleSubtitleBulletItemsData(it.versionName, it.versionSubtitle, it.whatsNewItems)
+            item.isExpanded = true
             items.add(item)
         }
 

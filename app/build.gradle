@@ -43,7 +43,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation 'com.android.support:design:27.0.2'
     implementation 'com.github.udioshi85:libGenericSettings:1.3.1'
-//    compile project(path: ':libGenericSettings')
+//    implementation project(path: ':libGenericSettings')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.2.20"
     implementation 'com.airbnb.android:lottie:2.3.1'

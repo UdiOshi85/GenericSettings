@@ -45,7 +45,7 @@ dependencies {
     implementation 'com.github.udioshi85:libGenericSettings:1.3.1'
 //    implementation project(path: ':libGenericSettings')
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.2.20"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.2.21"
     implementation 'com.airbnb.android:lottie:2.3.1'
 
 }

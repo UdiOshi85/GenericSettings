@@ -30,5 +30,12 @@ class MainLauncherActivity : AppCompatActivity() {
         val adapter = SettingsAdapter(this, WhatsNewPresenter())
         whatsNewList.layoutManager = LinearLayoutManager(this)
         whatsNewList.adapter = adapter
+
+        version.text = getVersionName()
+    }
+
+    private fun getVersionName() : String {
+        val pInfo = packageManager.getPackageInfo(packageName, 0)
+        return "v" + pInfo.versionName
     }
 }

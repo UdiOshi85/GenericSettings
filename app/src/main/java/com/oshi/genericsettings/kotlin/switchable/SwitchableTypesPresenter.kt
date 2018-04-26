@@ -2,15 +2,14 @@ package com.oshi.genericsettings.kotlin.switchable
 
 import android.content.Context
 import android.support.design.widget.CoordinatorLayout
+import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.SwitchCompat
 import android.view.View
 import com.oshi.genericsettings.R
 import com.oshi.libgenericsettings.data.*
 import com.oshi.libgenericsettings.presenter.BaseSettingsPresenter
-import com.oshi.libgenericsettings.presenter.ISettingsPresenter
 
-
-class SwitchableTypesPresenter(var coordinatorLayout: CoordinatorLayout, var listener: ISettingsPresenter.OnSettingsChangedListener) : BaseSettingsPresenter() {
+class SwitchableTypesPresenter(recyclerView: RecyclerView, var coordinatorLayout: CoordinatorLayout) : BaseSettingsPresenter(recyclerView) {
 
     companion object {
         private const val POSITION_HEADER = 0

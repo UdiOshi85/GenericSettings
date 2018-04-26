@@ -3,13 +3,14 @@ package com.oshi.genericsettings.kotlin.basic
 import android.content.Context
 import android.support.design.widget.CoordinatorLayout
 import android.support.design.widget.Snackbar
+import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.oshi.genericsettings.R
 import com.oshi.libgenericsettings.data.*
 import com.oshi.libgenericsettings.presenter.BaseSettingsPresenter
 
 
-class BasicTypesDividerPresenter(var coordinatorLayout: CoordinatorLayout) : BaseSettingsPresenter() {
+class BasicTypesDividerPresenter(recyclerView: RecyclerView, var coordinatorLayout: CoordinatorLayout) : BaseSettingsPresenter(recyclerView) {
 
 
     companion object {

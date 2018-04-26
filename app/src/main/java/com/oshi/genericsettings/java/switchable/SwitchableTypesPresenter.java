@@ -1,7 +1,8 @@
 package com.oshi.genericsettings.java.switchable;
 
 import android.content.Context;
-import android.support.design.widget.CoordinatorLayout;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SwitchCompat;
 import android.view.View;
 
@@ -12,8 +13,6 @@ import com.oshi.libgenericsettings.data.TitleSubtitleExtraSwitchData;
 import com.oshi.libgenericsettings.data.TitleSubtitleSwitchData;
 import com.oshi.libgenericsettings.data.TitleSwitchData;
 import com.oshi.libgenericsettings.presenter.BaseSettingsPresenter;
-import com.oshi.libgenericsettings.presenter.ISettingsPresenter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,18 +28,13 @@ public class SwitchableTypesPresenter extends BaseSettingsPresenter {
     private static final int POSITION_COLORED_TITLE_SUBTITLE_SWITCH = 6;
     private static final int POSITION_COLORED_TITLE_SUBTITLE_EXTRA_SWITCH = 7;
 
-
-
-    private CoordinatorLayout coordinatorLayout;
-    private ISettingsPresenter.OnSettingsChangedListener onSettingsChangedListener;
-
-    public SwitchableTypesPresenter(CoordinatorLayout coordinatorLayout, ISettingsPresenter.OnSettingsChangedListener l) {
-        this.coordinatorLayout = coordinatorLayout;
-        this.onSettingsChangedListener = l;
+    SwitchableTypesPresenter(RecyclerView recyclerView) {
+        super(recyclerView);
     }
 
+    @NonNull
     @Override
-    public List<BaseViewTypeData> getItems(Context context) {
+    public List<BaseViewTypeData> getItems(@NonNull Context context) {
         List<BaseViewTypeData> items = new ArrayList<>();
 
         HeaderData headerData = new HeaderData("SWITCHABLE TYPES");
@@ -91,7 +85,7 @@ public class SwitchableTypesPresenter extends BaseSettingsPresenter {
     }
 
     @Override
-    public void onTitleSubtitleExtraSwitchClick(View view, TitleSubtitleExtraSwitchData data, int position) {
+    public void onTitleSubtitleExtraSwitchClick(@NonNull View view, @NonNull TitleSubtitleExtraSwitchData data, int position) {
 
         boolean oldValue = data.isSwitchOn();
         boolean newValue = !oldValue;
@@ -102,7 +96,7 @@ public class SwitchableTypesPresenter extends BaseSettingsPresenter {
     }
 
     @Override
-    public void onTitleSwitchClick(View view, TitleSwitchData data, int position) {
+    public void onTitleSwitchClick(@NonNull View view, @NonNull TitleSwitchData data, int position) {
         boolean oldValue = data.isSwitchOn();
         boolean newValue = !oldValue;
 
@@ -113,7 +107,7 @@ public class SwitchableTypesPresenter extends BaseSettingsPresenter {
     }
 
     @Override
-    public void onTitleSubtitleSwitchClick(View view, final TitleSubtitleSwitchData data, final int position) {
+    public void onTitleSubtitleSwitchClick(@NonNull View view, @NonNull final TitleSubtitleSwitchData data, final int position) {
         boolean oldValue = data.isSwitchOn();
         final boolean newValue = !oldValue;
 

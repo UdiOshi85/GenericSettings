@@ -21,38 +21,26 @@ public class CheckableTypesActivity extends AppCompatActivity {
         context.startActivity(intent);
     }
 
-    private SettingsAdapter adapter;
-    private RecyclerView recyclerView;
-    private Toolbar toolbar;
-    private CoordinatorLayout coordinatorLayout;
-
-    // Presenters
-    private ISettingsPresenter checkableTypesPresenter;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkable_types);
 
-        toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        recyclerView = findViewById(R.id.recyclerView);
-        coordinatorLayout = findViewById(R.id.coordinatorLayout);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
 
 
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        CoordinatorLayout coordinatorLayout = findViewById(R.id.coordinatorLayout);
 
-        checkableTypesPresenter = new CheckableTypesPresenter(coordinatorLayout, new ISettingsPresenter.OnSettingsChangedListener() {
-            @Override
-            public void notifyItemChanged(int position) {
-                adapter.notifyItemChanged(position);
-            }
-        });
-        adapter = new SettingsAdapter(CheckableTypesActivity.this, checkableTypesPresenter);
+
+        ISettingsPresenter checkableTypesPresenter = new CheckableTypesPresenter(recyclerView, coordinatorLayout);
+        SettingsAdapter adapter = new SettingsAdapter(CheckableTypesActivity.this, checkableTypesPresenter);
         recyclerView.setAdapter(adapter);
 
 

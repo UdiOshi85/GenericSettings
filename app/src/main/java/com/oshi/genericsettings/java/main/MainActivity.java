@@ -10,18 +10,14 @@ import com.oshi.libgenericsettings.presenter.ISettingsPresenter;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private SettingsAdapter adapter;
-    private ISettingsPresenter settingsPresenter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        recyclerView = findViewById(R.id.recyclerView);
-        settingsPresenter = new MainScreenPresenter();
-        adapter = new SettingsAdapter(MainActivity.this, settingsPresenter);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        ISettingsPresenter settingsPresenter = new MainScreenPresenter(recyclerView);
+        SettingsAdapter adapter = new SettingsAdapter(MainActivity.this, settingsPresenter);
         recyclerView.setAdapter(adapter);
     }
 }

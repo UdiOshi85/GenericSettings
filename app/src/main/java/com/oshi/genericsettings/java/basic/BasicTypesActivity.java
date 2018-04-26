@@ -26,9 +26,6 @@ public class BasicTypesActivity extends AppCompatActivity {
     private ISettingsPresenter basicItemsPresenter;
     private ISettingsPresenter basicItemsWithDividerPresenter;
     private SettingsAdapter adapter;
-    private RecyclerView recyclerView;
-    private Toolbar toolbar;
-    private CoordinatorLayout coordinatorLayout;
     private boolean isDividerEnabled = false;
 
     @Override
@@ -36,17 +33,20 @@ public class BasicTypesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basic_types);
 
-        coordinatorLayout = findViewById(R.id.coordinatorLayout);
-        toolbar = findViewById(R.id.toolbar);
+        CoordinatorLayout coordinatorLayout = findViewById(R.id.coordinatorLayout);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
 
-        basicItemsPresenter = new BasicTypesPresenter(coordinatorLayout);
-        basicItemsWithDividerPresenter = new BasicTypesDividerPresenter(coordinatorLayout);
+        basicItemsPresenter = new BasicTypesPresenter(recyclerView, coordinatorLayout);
+        basicItemsWithDividerPresenter = new BasicTypesDividerPresenter(recyclerView, coordinatorLayout);
         adapter = new SettingsAdapter(BasicTypesActivity.this, basicItemsPresenter);
-        recyclerView = findViewById(R.id.recyclerView);
+
         recyclerView.setAdapter(adapter);
 
     }

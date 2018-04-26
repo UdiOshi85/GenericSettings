@@ -2,6 +2,7 @@ package com.oshi.genericsettings.kotlin.expandable
 
 import android.content.Context
 import android.support.design.widget.CoordinatorLayout
+import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -12,7 +13,7 @@ import com.oshi.libgenericsettings.presenter.BaseSettingsPresenter
 import com.oshi.libgenericsettings.presenter.ISettingsPresenter
 
 
-class ExpandableTypesPresenter(var coordinatorLayout: CoordinatorLayout, var listener : ISettingsPresenter.OnSettingsChangedListener) : BaseSettingsPresenter() {
+class ExpandableTypesPresenter(recyclerView: RecyclerView, var coordinatorLayout: CoordinatorLayout, private var listener : ISettingsPresenter.OnSettingsChangedListener) : BaseSettingsPresenter(recyclerView) {
 
     companion object {
         private const val POSITION_HEADER = 0

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -21,37 +20,26 @@ public class SwitchableTypesActivity extends AppCompatActivity {
         context.startActivity(intent);
     }
 
-    private SettingsAdapter adapter;
-    private RecyclerView recyclerView;
-    private Toolbar toolbar;
-    private CoordinatorLayout coordinatorLayout;
-
-    // Presenters
-    private ISettingsPresenter switchTypesPresenter;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_switchable_types);
 
-        toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
 
-        recyclerView = findViewById(R.id.recyclerView);
-        coordinatorLayout = findViewById(R.id.coordinatorLayout);
 
-        switchTypesPresenter = new SwitchableTypesPresenter(coordinatorLayout, new ISettingsPresenter.OnSettingsChangedListener() {
-            @Override
-            public void notifyItemChanged(int position) {
-                adapter.notifyItemChanged(position);
-            }
-        });
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
 
-        adapter = new SettingsAdapter(SwitchableTypesActivity.this, switchTypesPresenter);
+        ISettingsPresenter switchTypesPresenter = new SwitchableTypesPresenter(recyclerView);
+
+        SettingsAdapter adapter = new SettingsAdapter(SwitchableTypesActivity.this, switchTypesPresenter);
         recyclerView.setAdapter(adapter);
 
     }

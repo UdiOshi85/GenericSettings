@@ -1,8 +1,10 @@
 package com.oshi.genericsettings.java.basic;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.oshi.genericsettings.R;
@@ -27,21 +29,23 @@ public class BasicTypesDividerPresenter extends BaseSettingsPresenter {
     private static final int POSITION_SINGLE_TITLE = 1;
     private static final int POSITION_TWO_ROWS = 3;
     private static final int POSITION_THREE_ROWS = 5;
-    private static final int POSITION_TITLE_STITLE = 7;
+    private static final int POSITION_TITLE_SUBTITLE = 7;
     private static final int POSITION_COLORED_HEADER = 8;
     private static final int POSITION_COLORED_SINGLE_TITLE = 9;
     private static final int POSITION_COLORED_TWO_ROWS = 11;
     private static final int POSITION_COLORED_THREE_ROWS = 13;
-    private static final int POSITION_COLORED_TITLE_STITLE = 15;
+    private static final int POSITION_COLORED_TITLE_SUBTITLE = 15;
 
     private CoordinatorLayout coordinatorLayout;
 
-    public BasicTypesDividerPresenter(CoordinatorLayout coordinatorLayout) {
+    BasicTypesDividerPresenter(RecyclerView recyclerView, CoordinatorLayout coordinatorLayout) {
+        super(recyclerView);
         this.coordinatorLayout = coordinatorLayout;
     }
 
+    @NonNull
     @Override
-    public List<BaseViewTypeData> getItems(Context context) {
+    public List<BaseViewTypeData> getItems(@NonNull Context context) {
 
         List<BaseViewTypeData> items = new ArrayList<>();
 
@@ -64,7 +68,7 @@ public class BasicTypesDividerPresenter extends BaseSettingsPresenter {
         items.add(DividerData.create());
 
         TitleSecondaryTitleData titleSecondaryTitleData = new TitleSecondaryTitleData("Title & secondary text", "SECONDARY");
-        items.add(POSITION_TITLE_STITLE, titleSecondaryTitleData);
+        items.add(POSITION_TITLE_SUBTITLE, titleSecondaryTitleData);
 
         HeaderData coloredHeader = new HeaderData("COLORED BASIC ITEMS");
         coloredHeader.setHeaderColor(R.color.blue);
@@ -94,13 +98,13 @@ public class BasicTypesDividerPresenter extends BaseSettingsPresenter {
         TitleSecondaryTitleData coloredTitleSecondaryTitleData = new TitleSecondaryTitleData("Title & secondary text", "SECONDARY");
         coloredTitleSecondaryTitleData.setTitleColor(R.color.red);
         coloredTitleSecondaryTitleData.setSecondaryTitleColor(R.color.blue);
-        items.add(POSITION_COLORED_TITLE_STITLE, coloredTitleSecondaryTitleData);
+        items.add(POSITION_COLORED_TITLE_SUBTITLE, coloredTitleSecondaryTitleData);
 
         return items;
     }
 
     @Override
-    public void onTitleClick(View view, TitleData data, int position) {
+    public void onTitleClick(@NonNull View view, @NonNull TitleData data, int position) {
 
         if (position == POSITION_SINGLE_TITLE) {
             Snackbar.make(coordinatorLayout, "Single title clicked", Snackbar.LENGTH_SHORT).show();
@@ -110,7 +114,7 @@ public class BasicTypesDividerPresenter extends BaseSettingsPresenter {
     }
 
     @Override
-    public void onTitleSubtitleClick(View view, TitleSubtitleData data, int position) {
+    public void onTitleSubtitleClick(@NonNull View view, @NonNull TitleSubtitleData data, int position) {
 
         if (position == POSITION_TWO_ROWS) {
             Snackbar.make(coordinatorLayout, "Two rows clicked", Snackbar.LENGTH_SHORT).show();
@@ -120,7 +124,7 @@ public class BasicTypesDividerPresenter extends BaseSettingsPresenter {
     }
 
     @Override
-    public void onTitleSubtitleExtraClick(View view, TitleSubtitleExtraData data, int position) {
+    public void onTitleSubtitleExtraClick(@NonNull View view, @NonNull TitleSubtitleExtraData data, int position) {
 
         if (position == POSITION_THREE_ROWS) {
             Snackbar.make(coordinatorLayout, "Three rows clicked", Snackbar.LENGTH_SHORT).show();
@@ -131,9 +135,9 @@ public class BasicTypesDividerPresenter extends BaseSettingsPresenter {
 
     @Override
     public void onTitleSecondaryTitleClick(@NotNull View view, @NotNull TitleSecondaryTitleData data, int position) {
-        if (position == POSITION_TITLE_STITLE) {
+        if (position == POSITION_TITLE_SUBTITLE) {
             Snackbar.make(coordinatorLayout, "Title & Secondary title clicked", Snackbar.LENGTH_SHORT).show();
-        } else if (position == POSITION_COLORED_TITLE_STITLE) {
+        } else if (position == POSITION_COLORED_TITLE_SUBTITLE) {
             Snackbar.make(coordinatorLayout, "Colored Title & Secondary title clicked", Snackbar.LENGTH_SHORT).show();
         }
     }

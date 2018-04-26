@@ -21,36 +21,27 @@ public class SeekBarTypesActivity extends AppCompatActivity {
         context.startActivity(intent);
     }
 
-    private SettingsAdapter adapter;
-    private RecyclerView recyclerView;
-    private Toolbar toolbar;
-    private CoordinatorLayout coordinatorLayout;
-
-    private ISettingsPresenter seekBarTypesPresenter;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seekbar_types);
 
-        toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
 
-        recyclerView = findViewById(R.id.recyclerView);
-        coordinatorLayout = findViewById(R.id.coordinatorLayout);
 
-        seekBarTypesPresenter = new SeekBarTypesPresenter(coordinatorLayout, new ISettingsPresenter.OnSettingsChangedListener() {
-            @Override
-            public void notifyItemChanged(int position) {
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        CoordinatorLayout coordinatorLayout = findViewById(R.id.coordinatorLayout);
 
-            }
-        });
+        ISettingsPresenter seekBarTypesPresenter = new SeekBarTypesPresenter(recyclerView, coordinatorLayout);
 
-        adapter = new SettingsAdapter(SeekBarTypesActivity.this, seekBarTypesPresenter);
+        SettingsAdapter adapter = new SettingsAdapter(SeekBarTypesActivity.this, seekBarTypesPresenter);
         recyclerView.setAdapter(adapter);
 
     }

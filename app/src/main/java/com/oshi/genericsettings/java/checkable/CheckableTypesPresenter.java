@@ -1,9 +1,11 @@
 package com.oshi.genericsettings.java.checkable;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.AppCompatCheckBox;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.oshi.genericsettings.R;
@@ -29,17 +31,16 @@ public class CheckableTypesPresenter extends BaseSettingsPresenter {
     private static final int POSITION_COLOR_TITLE_SUBTITLE_CHECKBOX = 6;
     private static final int POSITION_COLOR_TITLE_SUBTITLE_EXTRA_CHECKBOX = 7;
 
-
     private CoordinatorLayout coordinatorLayout;
-    private OnSettingsChangedListener onSettingsChangedListener;
 
-    public CheckableTypesPresenter(CoordinatorLayout coordinatorLayout, OnSettingsChangedListener l) {
+    CheckableTypesPresenter(RecyclerView recyclerView, CoordinatorLayout coordinatorLayout) {
+        super(recyclerView);
         this.coordinatorLayout = coordinatorLayout;
-        this.onSettingsChangedListener = l;
     }
 
+    @NonNull
     @Override
-    public List<BaseViewTypeData> getItems(Context context) {
+    public List<BaseViewTypeData> getItems(@NonNull Context context) {
 
         List<BaseViewTypeData> items = new ArrayList<>();
 
@@ -79,7 +80,7 @@ public class CheckableTypesPresenter extends BaseSettingsPresenter {
     }
 
     @Override
-    public void onTitleCheckboxClick(View view, TitleCheckboxData data, int position) {
+    public void onTitleCheckboxClick(@NonNull View view, @NonNull TitleCheckboxData data, int position) {
 
         boolean oldValue = data.isEnabled();
         boolean newValue = !oldValue;
@@ -93,7 +94,7 @@ public class CheckableTypesPresenter extends BaseSettingsPresenter {
     }
 
     @Override
-    public void onCheckboxTitleSubtitleClick(View view, TitleSubtitleCheckboxData data, int position) {
+    public void onCheckboxTitleSubtitleClick(@NonNull View view, @NonNull TitleSubtitleCheckboxData data, int position) {
         boolean oldValue = data.isEnabled();
         boolean newValue = !oldValue;
 
@@ -106,7 +107,7 @@ public class CheckableTypesPresenter extends BaseSettingsPresenter {
     }
 
     @Override
-    public void onTitleSubtitleExtraCheckboxClick(View view, TitleSubtitleExtraCheckboxData data, int position) {
+    public void onTitleSubtitleExtraCheckboxClick(@NonNull View view, @NonNull TitleSubtitleExtraCheckboxData data, int position) {
         boolean oldValue = data.isEnabled();
         boolean newValue = !oldValue;
 

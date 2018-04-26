@@ -1,6 +1,8 @@
 package com.oshi.genericsettings.java.main;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.oshi.genericsettings.java.basic.BasicTypesActivity;
@@ -11,6 +13,8 @@ import com.oshi.genericsettings.java.switchable.SwitchableTypesActivity;
 import com.oshi.libgenericsettings.data.BaseViewTypeData;
 import com.oshi.libgenericsettings.data.TitleData;
 import com.oshi.libgenericsettings.presenter.BaseSettingsPresenter;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,9 +27,14 @@ public class MainScreenPresenter extends BaseSettingsPresenter {
     private static int POSITION_SEEKBAR_TYPES = 3;
     private static int POSITION_EXPANDABLE_TYPES = 4;
 
+    MainScreenPresenter(@NotNull RecyclerView recyclerView) {
+        super(recyclerView);
+    }
 
+
+    @NonNull
     @Override
-    public List<BaseViewTypeData> getItems(Context context) {
+    public List<BaseViewTypeData> getItems(@NonNull Context context) {
 
         List<BaseViewTypeData> dataList = new ArrayList<>();
 
@@ -49,7 +58,7 @@ public class MainScreenPresenter extends BaseSettingsPresenter {
     }
 
     @Override
-    public void onTitleClick(View view, TitleData data, int position) {
+    public void onTitleClick(@NonNull View view, @NonNull TitleData data, int position) {
         super.onTitleClick(view, data, position);
 
         if (position == POSITION_GENERIC_TYPES) {

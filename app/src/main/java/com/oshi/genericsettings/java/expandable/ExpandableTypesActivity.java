@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -21,35 +20,24 @@ public class ExpandableTypesActivity extends AppCompatActivity {
         context.startActivity(intent);
     }
 
-    private SettingsAdapter adapter;
-    private RecyclerView recyclerView;
-    private Toolbar toolbar;
-    private CoordinatorLayout coordinatorLayout;
-
-    private ISettingsPresenter expandableTypesPresenter;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expandables_types);
 
-        toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
 
-        recyclerView = findViewById(R.id.recyclerView);
-        coordinatorLayout = findViewById(R.id.coordinatorLayout);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
 
-        expandableTypesPresenter = new ExpandableTypesPresenter(coordinatorLayout, new ISettingsPresenter.OnSettingsChangedListener() {
-            @Override
-            public void notifyItemChanged(int position) {
-                adapter.notifyItemChanged(position);
-            }
-        });
-        adapter = new SettingsAdapter(ExpandableTypesActivity.this, expandableTypesPresenter);
+        ISettingsPresenter expandableTypesPresenter = new ExpandableTypesPresenter(recyclerView);
+        SettingsAdapter adapter = new SettingsAdapter(ExpandableTypesActivity.this, expandableTypesPresenter);
         recyclerView.setAdapter(adapter);
 
     }

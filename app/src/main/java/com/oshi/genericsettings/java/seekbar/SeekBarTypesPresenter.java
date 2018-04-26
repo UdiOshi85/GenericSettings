@@ -1,8 +1,10 @@
 package com.oshi.genericsettings.java.seekbar;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.oshi.genericsettings.R;
@@ -25,17 +27,16 @@ public class SeekBarTypesPresenter extends BaseSettingsPresenter {
     private static final int POSITION_COLORED_ICON_TITLE_SEEKBAR_VALUE = 4;
     private static final int POSITION_COLORED_TITLE_SEEKBAR_MIN_MAX = 5;
 
-
     private CoordinatorLayout coordinatorLayout;
-    private OnSettingsChangedListener onSettingsChangedListener;
 
-    public SeekBarTypesPresenter(CoordinatorLayout coordinatorLayout, OnSettingsChangedListener l) {
+    SeekBarTypesPresenter(RecyclerView recyclerView, CoordinatorLayout coordinatorLayout) {
+        super(recyclerView);
         this.coordinatorLayout = coordinatorLayout;
-        this.onSettingsChangedListener = l;
     }
 
+    @NonNull
     @Override
-    public List<BaseViewTypeData> getItems(Context context) {
+    public List<BaseViewTypeData> getItems(@NonNull Context context) {
 
         List<BaseViewTypeData> items = new ArrayList<>();
 
@@ -70,12 +71,12 @@ public class SeekBarTypesPresenter extends BaseSettingsPresenter {
     }
 
     @Override
-    public void onTitleSeekBarMinMaxChanged(View view, TitleSeekBarMinMaxData data, int position) {
+    public void onTitleSeekBarMinMaxChanged(@NonNull View view, @NonNull TitleSeekBarMinMaxData data, int position) {
         Snackbar.make(coordinatorLayout, "Progress changed: " + data.getRealProgress(), Snackbar.LENGTH_SHORT).show();
     }
 
     @Override
-    public void onTitleIconSeekBarTextChanged(View view, TitleIconSeekBarTextData data, int position) {
+    public void onTitleIconSeekBarTextChanged(@NonNull View view, @NonNull TitleIconSeekBarTextData data, int position) {
         Snackbar.make(coordinatorLayout, "Progress changed: " + data.getSeekBarCurrentProgress(), Snackbar.LENGTH_SHORT).show();
     }
 }

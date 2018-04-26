@@ -3,6 +3,7 @@ package com.oshi.genericsettings.java.expandable;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -42,13 +43,8 @@ public class ExpandableTypesPresenter extends BaseSettingsPresenter {
     private static final int POSITION_COLORED_EXPANDABLE_TITLE_BULLET_ITEMS = 12;
     private static final int POSITION_COLORED_EXPANDABLE_TITLE_SUBTITLE_BULLET_ITEMS = 13;
 
-
-    private CoordinatorLayout coordinatorLayout;
-    private OnSettingsChangedListener onSettingsChangedListener;
-
-    public ExpandableTypesPresenter(CoordinatorLayout coordinatorLayout, OnSettingsChangedListener l) {
-        this.coordinatorLayout = coordinatorLayout;
-        this.onSettingsChangedListener = l;
+    public ExpandableTypesPresenter(RecyclerView recyclerView) {
+        super(recyclerView);
     }
 
     @Override
@@ -134,7 +130,7 @@ public class ExpandableTypesPresenter extends BaseSettingsPresenter {
         boolean oldVal = data.getItems().get(subItemPosition).isChecked();
         boolean newVal = !oldVal;
         data.getItems().get(subItemPosition).setChecked(newVal);
-        onSettingsChangedListener.notifyItemChanged(parentPosition);
+        getRecyclerView().getAdapter().notifyItemChanged(parentPosition);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.oshi.genericsettings.kotlin.main
 
 import android.content.Context
+import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.oshi.genericsettings.kotlin.*
 import com.oshi.libgenericsettings.data.BaseViewTypeData
@@ -8,14 +9,13 @@ import com.oshi.libgenericsettings.data.TitleData
 import com.oshi.libgenericsettings.presenter.BaseSettingsPresenter
 
 
-class MainScreenPresenter : BaseSettingsPresenter() {
-
+class MainScreenPresenter(recyclerView: RecyclerView) : BaseSettingsPresenter(recyclerView) {
 
     companion object {
         private const val POSITION_GENERIC_TYPES = 0
         private const val POSITION_CHECKABLE_TYPES = 1
         private const val POSITION_SWITCHABLE_TYPES = 2
-        private const val POSITION_SEEKBAR_TYPES = 3
+        private const val POSITION_SEEK_BAR_TYPES = 3
         private const val POSITION_EXPANDABLE_TYPES = 4
     }
 
@@ -33,7 +33,7 @@ class MainScreenPresenter : BaseSettingsPresenter() {
         dataList.add(POSITION_SWITCHABLE_TYPES, switchableViewsData)
 
         val seekBarTypes = TitleData("SeeBar types")
-        dataList.add(POSITION_SEEKBAR_TYPES, seekBarTypes)
+        dataList.add(POSITION_SEEK_BAR_TYPES, seekBarTypes)
 
         val expandableTypes = TitleData("Expandable types")
         dataList.add(expandableTypes)
@@ -54,7 +54,7 @@ class MainScreenPresenter : BaseSettingsPresenter() {
             POSITION_EXPANDABLE_TYPES -> {
                 view.context.startExpandableTypesActivity()
             }
-            POSITION_SEEKBAR_TYPES -> {
+            POSITION_SEEK_BAR_TYPES -> {
                 view.context.startSeekbarTypesActivity()
             }
             POSITION_SWITCHABLE_TYPES -> {
@@ -62,7 +62,4 @@ class MainScreenPresenter : BaseSettingsPresenter() {
             }
         }
     }
-
-
-
 }

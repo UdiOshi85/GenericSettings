@@ -28,12 +28,7 @@ class MainLauncherActivity : AppCompatActivity() {
 
     private fun initWhatsNewList() {
 
-        val adapter = SettingsAdapter(this, WhatsNewPresenter(object : WhatsNewPresenter.OnExpandCollapseClickListener {
-            override fun onExpandCollapseChange(position: Int) {
-                // TODO use ViewExpander
-            }
-
-        }))
+        val adapter = SettingsAdapter(this, WhatsNewPresenter(whatsNewList))
         whatsNewList.layoutManager = LinearLayoutManager(this)
         whatsNewList.adapter = adapter
 

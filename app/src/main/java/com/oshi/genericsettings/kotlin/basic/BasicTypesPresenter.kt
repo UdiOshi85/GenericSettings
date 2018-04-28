@@ -27,7 +27,6 @@ class BasicTypesPresenter(recyclerView: RecyclerView, var coordinatorLayout: Coo
         private const val POSITION_COLORED_ICON_TITLE = 11
     }
 
-
     override fun getItems(context: Context): List<BaseViewTypeData> {
 
         val items = ArrayList<BaseViewTypeData>()
@@ -74,9 +73,10 @@ class BasicTypesPresenter(recyclerView: RecyclerView, var coordinatorLayout: Coo
         coloredTitleSecondaryTitleData.secondaryTitleColor = R.color.blue
         items.add(POSITION_COLORED_TITLE_SUBTITLE, coloredTitleSecondaryTitleData)
 
-        val coloredIconTitleData = IconTitleData(R.drawable.ic_android_black_24dp, "Icon & Title")
-        coloredIconTitleData.
-        items.add(POSITION_ICON_TITLE, iconTitleData)
+        val coloredIconTitleData = IconTitleData(R.drawable.ic_android_black_24dp, "Colored Icon & Title")
+        coloredIconTitleData.iconColor = R.color.red
+        coloredIconTitleData.titleColor = R.color.red
+        items.add(POSITION_COLORED_ICON_TITLE, coloredIconTitleData)
 
         return items
     }

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.oshi.genericsettings.R
-import com.oshi.genericsettings.java.expandable.ExpandableTypesPresenter
 import com.oshi.libgenericsettings.adapter.SettingsAdapter
 import com.oshi.libgenericsettings.presenter.ISettingsPresenter
 import kotlinx.android.synthetic.main.activity_expandables_types.*
@@ -12,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_expandables_types.*
 
 class ExpandableTypesActivity : AppCompatActivity() {
 
-    lateinit var adapter : SettingsAdapter
+    private lateinit var adapter : SettingsAdapter
     private lateinit var expandableTypesPresenter : ISettingsPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +23,7 @@ class ExpandableTypesActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
-        expandableTypesPresenter = ExpandableTypesPresenter(recyclerView)
+        expandableTypesPresenter = ExpandableTypesPresenter(recyclerView, coordinatorLayout)
         adapter = SettingsAdapter(this, expandableTypesPresenter)
         recyclerView.adapter = adapter
     }

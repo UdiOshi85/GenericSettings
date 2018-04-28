@@ -13,7 +13,7 @@ import com.oshi.libgenericsettings.presenter.BaseSettingsPresenter
 import com.oshi.libgenericsettings.presenter.ISettingsPresenter
 
 
-class ExpandableTypesPresenter(recyclerView: RecyclerView, var coordinatorLayout: CoordinatorLayout, private var listener : ISettingsPresenter.OnSettingsChangedListener) : BaseSettingsPresenter(recyclerView) {
+class ExpandableTypesPresenter(recyclerView: RecyclerView, var coordinatorLayout: CoordinatorLayout) : BaseSettingsPresenter(recyclerView) {
 
     companion object {
         private const val POSITION_HEADER = 0
@@ -105,14 +105,6 @@ class ExpandableTypesPresenter(recyclerView: RecyclerView, var coordinatorLayout
         items.add(POSITION_COLORED_EXPANDABLE_TITLE_SUBTITLE_BULLET_ITEMS, coloredExpandableTitleSubtitleBulletItemsData)
 
         return items
-    }
-
-    override fun onExpandableCheckableItemClicked(view: View, data: ExpandableTitleCheckableItemsData, parentPosition: Int, subItemPosition: Int) {
-        Log.d(ExpandableTypesPresenter::javaClass.name, "onExpandableCheckableItemClicked: Position: $parentPosition, Sub item: $subItemPosition")
-        val oldVal = data.items[subItemPosition].isChecked
-        val newVal = !oldVal
-        data.items[subItemPosition].isChecked = newVal
-        listener.notifyItemChanged(parentPosition)
     }
 
     override fun onExpandableSimpleItemClicked(view: View, data: ExpandableTitleSimpleItemsData, parentPosition: Int, subItemPosition: Int) {

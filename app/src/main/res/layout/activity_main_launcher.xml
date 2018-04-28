@@ -51,11 +51,6 @@
         app:lottie_autoPlay="true" />
 
 
-    <TextView
-        android:id="@+id/changelog"
-        android:layout_width="@dimen/dimen_0_dp"
-        android:layout_height="wrap_content" />
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/whatsNewList"
         app:layout_constraintTop_toBottomOf="@+id/animation_view"
@@ -66,22 +61,11 @@
         android:layout_width="@dimen/dimen_0_dp"
         android:layout_height="@dimen/dimen_0_dp"/>
 
-
-    <Button
-        android:id="@+id/startJava"
-        android:text="Start (JAVA)"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/startKotlin"
-        android:layout_margin="@dimen/dimen_8_dp"
-        android:layout_width="@dimen/dimen_0_dp"
-        android:layout_height="wrap_content" />
-
     <Button
         android:id="@+id/startKotlin"
-        android:text="Start (Kotlin)"
+        android:text="START"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/startJava"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="@dimen/dimen_8_dp"
         android:layout_width="@dimen/dimen_0_dp"

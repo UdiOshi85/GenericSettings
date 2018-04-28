@@ -18,12 +18,14 @@ class BasicTypesDividerPresenter(recyclerView: RecyclerView, var coordinatorLayo
         private const val POSITION_SINGLE_TITLE = 1
         private const val POSITION_TWO_ROWS = 3
         private const val POSITION_THREE_ROWS = 5
-        private const val POSITION_TITLE_STITLE = 7
-        private const val POSITION_COLORED_HEADER = 8
-        private const val POSITION_COLORED_SINGLE_TITLE = 9
-        private const val POSITION_COLORED_TWO_ROWS = 11
-        private const val POSITION_COLORED_THREE_ROWS = 13
-        private const val POSITION_COLORED_TITLE_STITLE = 15
+        private const val POSITION_TITLE_SECONDARY_TITLE = 7
+        private const val POSITION_ICON_TITLE = 9
+        private const val POSITION_COLORED_HEADER = 10
+        private const val POSITION_COLORED_SINGLE_TITLE = 11
+        private const val POSITION_COLORED_TWO_ROWS = 13
+        private const val POSITION_COLORED_THREE_ROWS = 15
+        private const val POSITION_COLORED_TITLE_SECONDARY_TITLE = 17
+        private const val POSITION_COLORED_ICON_TITLE = 19
     }
 
 
@@ -50,7 +52,7 @@ class BasicTypesDividerPresenter(recyclerView: RecyclerView, var coordinatorLayo
         items.add(DividerData.create());
 
         val titleSecondaryTitleData = TitleSecondaryTitleData("Title & secondary text", "SECONDARY")
-        items.add(POSITION_TITLE_STITLE, titleSecondaryTitleData)
+        items.add(POSITION_TITLE_SECONDARY_TITLE, titleSecondaryTitleData)
 
         val coloredHeader = HeaderData("COLORED BASIC ITEMS")
         coloredHeader.headerColor = R.color.blue
@@ -80,7 +82,7 @@ class BasicTypesDividerPresenter(recyclerView: RecyclerView, var coordinatorLayo
         val coloredTitleSecondaryTitleData = TitleSecondaryTitleData("Title & secondary text", "SECONDARY")
         coloredTitleSecondaryTitleData.titleColor = R.color.red
         coloredTitleSecondaryTitleData.secondaryTitleColor = R.color.blue
-        items.add(POSITION_COLORED_TITLE_STITLE, coloredTitleSecondaryTitleData)
+        items.add(POSITION_COLORED_TITLE_SECONDARY_TITLE, coloredTitleSecondaryTitleData)
 
         return items
     }
@@ -113,9 +115,9 @@ class BasicTypesDividerPresenter(recyclerView: RecyclerView, var coordinatorLayo
     }
 
     override fun onTitleSecondaryTitleClick(view: View, data: TitleSecondaryTitleData, position: Int) {
-        if (position == POSITION_TITLE_STITLE) {
+        if (position == POSITION_TITLE_SECONDARY_TITLE) {
             Snackbar.make(coordinatorLayout, "Title & Secondary title clicked", Snackbar.LENGTH_SHORT).show()
-        } else if (position == POSITION_COLORED_TITLE_STITLE) {
+        } else if (position == POSITION_COLORED_TITLE_SECONDARY_TITLE) {
             Snackbar.make(coordinatorLayout, "Colored Title & Secondary title clicked", Snackbar.LENGTH_SHORT).show()
         }
     }

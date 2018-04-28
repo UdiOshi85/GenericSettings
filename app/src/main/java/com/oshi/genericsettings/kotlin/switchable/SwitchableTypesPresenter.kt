@@ -22,7 +22,6 @@ class SwitchableTypesPresenter(recyclerView: RecyclerView, var coordinatorLayout
         private const val POSITION_COLORED_TITLE_SUBTITLE_EXTRA_SWITCH = 7
     }
 
-
     override fun getItems(context: Context): List<BaseViewTypeData> {
 
         val items = ArrayList<BaseViewTypeData>()
@@ -31,12 +30,15 @@ class SwitchableTypesPresenter(recyclerView: RecyclerView, var coordinatorLayout
         items.add(POSITION_HEADER, headerData)
 
         val titleSwitchData = TitleSwitchData("Single title with switch")
+        titleSwitchData.key = "switch_1"
         items.add(POSITION_TITLE_SWITCH, titleSwitchData)
 
         val titleSubtitleSwitchData = TitleSubtitleSwitchData("Two rows with a switch", "An extra subtitle row")
+        titleSubtitleSwitchData.key = "switch_2"
         items.add(POSITION_TITLE_SUBTITLE_SWITCH , titleSubtitleSwitchData)
 
         val titleSubtitleExtraSwitchData = TitleSubtitleExtraSwitchData("Third rows example", "Subtitle is here", "An extra text")
+        titleSubtitleExtraSwitchData.key = "switch_3"
         items.add(POSITION_TITLE_SUBTITLE_EXTRA_SWITCH, titleSubtitleExtraSwitchData)
 
         val coloredHeaderData = HeaderData("COLORING SWITCHABLE TYPES")
@@ -73,33 +75,4 @@ class SwitchableTypesPresenter(recyclerView: RecyclerView, var coordinatorLayout
 
         return items
     }
-
-    override fun onTitleSubtitleExtraSwitchClick(view: View, data: TitleSubtitleExtraSwitchData, position: Int) {
-        val oldValue = data.isSwitchOn
-        val newValue = !oldValue
-
-        val switchCompat = view.findViewById<SwitchCompat>(R.id.switchView)
-        switchCompat.isChecked = newValue
-        data.isSwitchOn = newValue
-    }
-
-    override fun onTitleSwitchClick(view: View, data: TitleSwitchData, position: Int) {
-        val oldValue = data.isSwitchOn
-        val newValue = !oldValue
-
-        val switchCompat = view.findViewById<SwitchCompat>(R.id.switchView)
-        switchCompat.isChecked = newValue
-        data.isSwitchOn = newValue
-    }
-
-    override fun onTitleSubtitleSwitchClick(view: View, data: TitleSubtitleSwitchData, position: Int) {
-        val oldValue = data.isSwitchOn
-        val newValue = !oldValue
-
-        val switchCompat = view.findViewById<SwitchCompat>(R.id.switchView)
-        data.isSwitchOn = newValue
-        switchCompat.isChecked = newValue
-    }
-
-
 }

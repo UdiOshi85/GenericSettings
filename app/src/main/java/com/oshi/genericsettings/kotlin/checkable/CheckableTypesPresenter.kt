@@ -33,13 +33,15 @@ class CheckableTypesPresenter(recyclerView: RecyclerView, var coordinatorLayout:
         items.add(POSITION_HEADER, headerData)
 
         val titleCheckboxData = TitleCheckboxData("Checkable Single text")
-        titleCheckboxData.key = "first_test"
+        titleCheckboxData.key = "key_1"
         items.add(POSITION_TITLE_CHECKBOX, titleCheckboxData)
 
         val titleSubtitleCheckboxData = TitleSubtitleCheckboxData("Checkable title & subtitle", "An extra text if needed")
+        titleSubtitleCheckboxData.key = "key_2"
         items.add(POSITION_TITLE_SUBTITLE_CHECKBOX, titleSubtitleCheckboxData)
 
         val titleSubtitleExtraCheckboxData = TitleSubtitleExtraCheckboxData("Three rows item", "Subtitle placeholder", "An extra text")
+        titleSubtitleExtraCheckboxData.key = "key_3"
         items.add(POSITION_TITLE_SUBTITLE_EXTRA_CHECKBOX, titleSubtitleExtraCheckboxData)
 
         val colorSectionHeaderData = HeaderData("COLORING CHECKABLE TYPES")
@@ -64,36 +66,4 @@ class CheckableTypesPresenter(recyclerView: RecyclerView, var coordinatorLayout:
 
         return items
     }
-
-    override fun onTitleCheckboxClick(view: View, data: TitleCheckboxData, position: Int) {
-        super.onTitleCheckboxClick(view, data, position)
-        Snackbar.make(coordinatorLayout, "Toggled position: $position", Snackbar.LENGTH_SHORT).show()
-    }
-
-    override fun onCheckboxTitleSubtitleClick(view: View, data: TitleSubtitleCheckboxData, position: Int) {
-        val oldValue = data.isEnabled
-        val newValue = !oldValue
-
-        data.isEnabled = newValue
-
-        val checkBox = view.findViewById<AppCompatCheckBox>(R.id.checkbox)
-        checkBox.isChecked = newValue
-
-        Snackbar.make(coordinatorLayout, "Toggled position: $position", Snackbar.LENGTH_SHORT).show()
-    }
-
-    override fun onTitleSubtitleExtraCheckboxClick(view: View, data: TitleSubtitleExtraCheckboxData, position: Int) {
-        val oldValue = data.isEnabled
-        val newValue = !oldValue
-
-        data.isEnabled = newValue
-
-        val checkBox = view.findViewById<AppCompatCheckBox>(R.id.checkbox)
-        checkBox.isChecked = newValue
-
-        Snackbar.make(coordinatorLayout, "Toggled position: $position", Snackbar.LENGTH_SHORT).show()
-    }
-
-
-
 }

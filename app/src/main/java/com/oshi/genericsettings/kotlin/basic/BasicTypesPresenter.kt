@@ -17,12 +17,14 @@ class BasicTypesPresenter(recyclerView: RecyclerView, var coordinatorLayout: Coo
         private const val POSITION_SINGLE_TITLE = 1
         private const val POSITION_TWO_ROWS = 2
         private const val POSITION_THREE_ROWS = 3
-        private const val POSITION_TITLE_STITLE = 4
-        private const val POSITION_COLORED_HEADER = 5
-        private const val POSITION_COLORED_SINGLE_TITLE = 6
-        private const val POSITION_COLORED_TWO_ROWS = 7
-        private const val POSITION_COLORED_THREE_ROWS = 8
-        private const val POSITION_COLORED_TITLE_STITLE = 9
+        private const val POSITION_TITLE_SUBTITLE = 4
+        private const val POSITION_ICON_TITLE = 5
+        private const val POSITION_COLORED_HEADER = 6
+        private const val POSITION_COLORED_SINGLE_TITLE = 7
+        private const val POSITION_COLORED_TWO_ROWS = 8
+        private const val POSITION_COLORED_THREE_ROWS = 9
+        private const val POSITION_COLORED_TITLE_SUBTITLE = 10
+        private const val POSITION_COLORED_ICON_TITLE = 11
     }
 
 
@@ -43,7 +45,10 @@ class BasicTypesPresenter(recyclerView: RecyclerView, var coordinatorLayout: Coo
         items.add(POSITION_THREE_ROWS, titleSubtitleExtraData)
 
         val titleSecondaryTitleData = TitleSecondaryTitleData("Title & secondary text", "SECONDARY")
-        items.add(POSITION_TITLE_STITLE, titleSecondaryTitleData)
+        items.add(POSITION_TITLE_SUBTITLE, titleSecondaryTitleData)
+
+        val iconTitleData = IconTitleData(R.drawable.ic_android_black_24dp, "Icon & Title")
+        items.add(POSITION_ICON_TITLE, iconTitleData)
 
         val coloredHeader = HeaderData("COLORED BASIC ITEMS")
         coloredHeader.headerColor = R.color.blue
@@ -67,7 +72,11 @@ class BasicTypesPresenter(recyclerView: RecyclerView, var coordinatorLayout: Coo
         val coloredTitleSecondaryTitleData = TitleSecondaryTitleData("Title & secondary text","SECONDARY")
         coloredTitleSecondaryTitleData.titleColor = R.color.red
         coloredTitleSecondaryTitleData.secondaryTitleColor = R.color.blue
-        items.add(POSITION_COLORED_TITLE_STITLE, coloredTitleSecondaryTitleData)
+        items.add(POSITION_COLORED_TITLE_SUBTITLE, coloredTitleSecondaryTitleData)
+
+        val coloredIconTitleData = IconTitleData(R.drawable.ic_android_black_24dp, "Icon & Title")
+        coloredIconTitleData.
+        items.add(POSITION_ICON_TITLE, iconTitleData)
 
         return items
     }
@@ -97,9 +106,9 @@ class BasicTypesPresenter(recyclerView: RecyclerView, var coordinatorLayout: Coo
     }
 
     override fun onTitleSecondaryTitleClick(view: View, data: TitleSecondaryTitleData, position: Int) {
-        if (position == POSITION_TITLE_STITLE) {
+        if (position == POSITION_TITLE_SUBTITLE) {
             Snackbar.make(coordinatorLayout, "Title & Secondary title clicked", Snackbar.LENGTH_SHORT).show()
-        } else if (position == POSITION_COLORED_TITLE_STITLE) {
+        } else if (position == POSITION_COLORED_TITLE_SUBTITLE) {
             Snackbar.make(coordinatorLayout, "Colored Title & Secondary title clicked", Snackbar.LENGTH_SHORT).show()
         }
     }

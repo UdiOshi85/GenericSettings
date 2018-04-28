@@ -33,6 +33,7 @@ class CheckableTypesPresenter(recyclerView: RecyclerView, var coordinatorLayout:
         items.add(POSITION_HEADER, headerData)
 
         val titleCheckboxData = TitleCheckboxData("Checkable Single text")
+        titleCheckboxData.key = "first_test"
         items.add(POSITION_TITLE_CHECKBOX, titleCheckboxData)
 
         val titleSubtitleCheckboxData = TitleSubtitleCheckboxData("Checkable title & subtitle", "An extra text if needed")
@@ -65,14 +66,7 @@ class CheckableTypesPresenter(recyclerView: RecyclerView, var coordinatorLayout:
     }
 
     override fun onTitleCheckboxClick(view: View, data: TitleCheckboxData, position: Int) {
-        val oldValue = data.isEnabled
-        val newValue = !oldValue
-
-        data.isEnabled = newValue
-
-        val checkBox = view.findViewById<AppCompatCheckBox>(R.id.checkbox)
-        checkBox.isChecked = newValue
-
+        super.onTitleCheckboxClick(view, data, position)
         Snackbar.make(coordinatorLayout, "Toggled position: $position", Snackbar.LENGTH_SHORT).show()
     }
 

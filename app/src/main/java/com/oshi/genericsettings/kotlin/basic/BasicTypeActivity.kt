@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.oshi.genericsettings.R
+
 import com.oshi.libgenericsettings.adapter.SettingsAdapter
 import com.oshi.libgenericsettings.presenter.ISettingsPresenter
 import kotlinx.android.synthetic.main.activity_basic_types.*

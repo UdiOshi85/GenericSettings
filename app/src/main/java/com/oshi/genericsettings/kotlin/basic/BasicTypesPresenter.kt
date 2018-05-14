@@ -18,13 +18,11 @@ class BasicTypesPresenter(recyclerView: RecyclerView, var coordinatorLayout: Coo
         private const val POSITION_TWO_ROWS = 2
         private const val POSITION_THREE_ROWS = 3
         private const val POSITION_TITLE_SUBTITLE = 4
-        private const val POSITION_ICON_TITLE = 5
-        private const val POSITION_COLORED_HEADER = 6
-        private const val POSITION_COLORED_SINGLE_TITLE = 7
-        private const val POSITION_COLORED_TWO_ROWS = 8
-        private const val POSITION_COLORED_THREE_ROWS = 9
-        private const val POSITION_COLORED_TITLE_SUBTITLE = 10
-        private const val POSITION_COLORED_ICON_TITLE = 11
+        private const val POSITION_COLORED_HEADER = 5
+        private const val POSITION_COLORED_SINGLE_TITLE = 6
+        private const val POSITION_COLORED_TWO_ROWS = 7
+        private const val POSITION_COLORED_THREE_ROWS = 8
+        private const val POSITION_COLORED_TITLE_SUBTITLE = 9
     }
 
     override fun getItems(context: Context): List<BaseViewTypeData> {
@@ -46,11 +44,8 @@ class BasicTypesPresenter(recyclerView: RecyclerView, var coordinatorLayout: Coo
         val titleSecondaryTitleData = TitleSecondaryTitleData("Title & secondary text", "SECONDARY")
         items.add(POSITION_TITLE_SUBTITLE, titleSecondaryTitleData)
 
-        val iconTitleData = IconTitleData(R.drawable.ic_android_black_24dp, "Icon & Title")
-        items.add(POSITION_ICON_TITLE, iconTitleData)
-
-        val coloredHeader = HeaderData("COLORED BASIC ITEMS")
-        coloredHeader.headerColor = R.color.blue
+        val coloredHeader = HeaderData("CUSTOMIZED BASIC ITEMS")
+        coloredHeader.headerColor = R.color.red
         items.add(POSITION_COLORED_HEADER, coloredHeader)
 
         val coloredTitleData = TitleData("Single title")
@@ -58,25 +53,20 @@ class BasicTypesPresenter(recyclerView: RecyclerView, var coordinatorLayout: Coo
         items.add(POSITION_COLORED_SINGLE_TITLE, coloredTitleData)
 
         val coloredTitleSubtitleData = TitleSubtitleData("Two rows example", "Simple as that")
-        coloredTitleSubtitleData.titleColor = R.color.blue
-        coloredTitleSubtitleData.subtitleColor = R.color.green
+        coloredTitleSubtitleData.titleColor = R.color.red
+        coloredTitleSubtitleData.subtitleColor = R.color.red
         items.add(POSITION_COLORED_TWO_ROWS, coloredTitleSubtitleData)
 
         val coloredTitleSubtitleExtraData = TitleSubtitleExtraData("Three lines ahead", "subtitle is here", "An extra text")
         coloredTitleSubtitleExtraData.titleColor = R.color.red
-        coloredTitleSubtitleExtraData.subtitleColor = R.color.green
-        coloredTitleSubtitleExtraData.extraColor = R.color.blue
+        coloredTitleSubtitleExtraData.subtitleColor = R.color.red
+        coloredTitleSubtitleExtraData.extraColor = R.color.red
         items.add(POSITION_COLORED_THREE_ROWS, coloredTitleSubtitleExtraData)
 
         val coloredTitleSecondaryTitleData = TitleSecondaryTitleData("Title & secondary text","SECONDARY")
         coloredTitleSecondaryTitleData.titleColor = R.color.red
-        coloredTitleSecondaryTitleData.secondaryTitleColor = R.color.blue
+        coloredTitleSecondaryTitleData.secondaryTitleColor = R.color.red
         items.add(POSITION_COLORED_TITLE_SUBTITLE, coloredTitleSecondaryTitleData)
-
-        val coloredIconTitleData = IconTitleData(R.drawable.ic_android_black_24dp, "Colored Icon & Title")
-        coloredIconTitleData.iconColor = R.color.red
-        coloredIconTitleData.titleColor = R.color.red
-        items.add(POSITION_COLORED_ICON_TITLE, coloredIconTitleData)
 
         return items
     }

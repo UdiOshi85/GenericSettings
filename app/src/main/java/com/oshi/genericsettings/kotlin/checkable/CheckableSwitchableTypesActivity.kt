@@ -1,35 +1,33 @@
-package com.oshi.genericsettings.kotlin.main
+package com.oshi.genericsettings.kotlin.checkable
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.view.Menu
 import android.view.MenuItem
 import com.oshi.genericsettings.R
 import com.oshi.libgenericsettings.adapter.SettingsAdapter
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_checkable_types.*
 
-class MainActivity : AppCompatActivity() {
+
+class CheckableSwitchableTypesActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
+        setContentView(R.layout.activity_checkable_types)
         setSupportActionBar(toolbar)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
-        val settingsPresenter = MainScreenPresenter(recyclerView)
-        val adapter = SettingsAdapter(this, settingsPresenter)
+        val checkableSwitchableTypesPresenter = CheckableSwitchableTypesPresenter(recyclerView, coordinatorLayout)
+
+        val adapter = SettingsAdapter(this, checkableSwitchableTypesPresenter)
         recyclerView.adapter = adapter
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        return super.onCreateOptionsMenu(menu)
-    }
-
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+
         val itemId = item?.itemId
+
         if (itemId == android.R.id.home) {
             onBackPressed()
             return true

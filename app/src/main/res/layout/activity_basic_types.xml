@@ -25,7 +25,7 @@
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:title="Generic Types"
+                app:title="Basic Types"
                 app:titleTextColor="@color/white" />
 
         </android.support.design.widget.AppBarLayout>

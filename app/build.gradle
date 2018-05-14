@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: "kotlin-android"
 apply plugin: "kotlin-android-extensions"
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 27
@@ -45,7 +46,9 @@ dependencies {
 //    implementation 'com.github.udioshi85:libGenericSettings:1.5.0'
     implementation project(path: ':libGenericSettings')
 
+    kapt "com.android.databinding:compiler:$tools_version"
+
     testImplementation 'junit:junit:4.12'
-    implementation 'com.airbnb.android:lottie:2.5.0'
+    implementation 'com.airbnb.android:lottie:2.5.4'
 
 }

@@ -7,10 +7,9 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
-        android:name=".GenericSettingsApp"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainLauncherActivity"
+            android:name=".kotlin.launcher.MainLauncherActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,27 +31,23 @@
 
         <!-- Checkable types -->
         <activity
-            android:name="com.oshi.genericsettings.kotlin.checkable.CheckableTypesActivity"
+            android:name="com.oshi.genericsettings.kotlin.checkable.CheckableSwitchableTypesActivity"
             android:screenOrientation="portrait" />
         <!-- End of Checkable types -->
 
-        <!-- Expandable types -->
-        <activity
-            android:name="com.oshi.genericsettings.kotlin.expandable.ExpandableTypesActivity"
-            android:screenOrientation="portrait" />
-        <!-- End of Expandable types -->
-
-        <!-- Switchable types -->
-        <activity
-            android:name=".kotlin.switchable.SwitchableTypesActivity"
-            android:screenOrientation="portrait" />
-        <!-- End of Switchable types -->
 
         <!-- Seekbar types -->
         <activity
             android:name=".kotlin.seekbar.SeekBarTypesActivity"
             android:screenOrientation="portrait" />
         <!-- End of Seekbar types -->
+
+        <activity android:name=".kotlin.debug.checkable.CheckableItemTestActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".kotlin.debug.switchable.SwitchableItemTestActivity"
+            android:screenOrientation="portrait"/>
+
 
     </application>
 

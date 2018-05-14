@@ -19,13 +19,11 @@ class BasicTypesDividerPresenter(recyclerView: RecyclerView, var coordinatorLayo
         private const val POSITION_TWO_ROWS = 3
         private const val POSITION_THREE_ROWS = 5
         private const val POSITION_TITLE_SECONDARY_TEXT = 7
-        private const val POSITION_ICON_TITLE = 9
-        private const val POSITION_COLORED_HEADER = 10
-        private const val POSITION_COLORED_SINGLE_TITLE = 11
-        private const val POSITION_COLORED_TWO_ROWS = 13
-        private const val POSITION_COLORED_THREE_ROWS = 15
-        private const val POSITION_COLORED_TITLE_SECONDARY_TEXT = 17
-        private const val POSITION_COLORED_ICON_TITLE = 19
+        private const val POSITION_COLORED_HEADER = 8
+        private const val POSITION_COLORED_SINGLE_TITLE = 9
+        private const val POSITION_COLORED_TWO_ROWS = 11
+        private const val POSITION_COLORED_THREE_ROWS = 13
+        private const val POSITION_COLORED_TITLE_SECONDARY_TEXT = 15
     }
 
 
@@ -54,47 +52,36 @@ class BasicTypesDividerPresenter(recyclerView: RecyclerView, var coordinatorLayo
         val titleSecondaryTitleData = TitleSecondaryTitleData("Title & secondary text", "SECONDARY")
         items.add(POSITION_TITLE_SECONDARY_TEXT, titleSecondaryTitleData)
 
-        items.add(DividerData.create())
-
-        val iconTitleData = IconTitleData(R.drawable.ic_android_black_24dp, "Icon & Title")
-        items.add(POSITION_ICON_TITLE, iconTitleData)
-
         val coloredHeader = HeaderData("COLORED BASIC ITEMS")
-        coloredHeader.headerColor = R.color.blue
+        coloredHeader.headerColor = R.color.red
         items.add(POSITION_COLORED_HEADER, coloredHeader)
 
         val coloredTitleData = TitleData("Single title")
         coloredTitleData.titleColor = R.color.red
         items.add(POSITION_COLORED_SINGLE_TITLE, coloredTitleData)
 
-        items.add(DividerData.create())
+        items.add(DividerData.create(R.color.red))
 
         val coloredTitleSubtitleData = TitleSubtitleData("Two rows example", "Simple as that")
-        coloredTitleSubtitleData.titleColor = R.color.blue
-        coloredTitleSubtitleData.subtitleColor = R.color.green
+        coloredTitleSubtitleData.titleColor = R.color.red
+        coloredTitleSubtitleData.subtitleColor = R.color.red
         items.add(POSITION_COLORED_TWO_ROWS, coloredTitleSubtitleData)
 
-        items.add(DividerData.create())
+        items.add(DividerData.create(R.color.red))
 
         val coloredTitleSubtitleExtraData = TitleSubtitleExtraData("Three lines ahead", "subtitle is here", "An extra text")
         coloredTitleSubtitleExtraData.titleColor = R.color.red
-        coloredTitleSubtitleExtraData.subtitleColor = R.color.green
-        coloredTitleSubtitleExtraData.extraColor = R.color.blue
+        coloredTitleSubtitleExtraData.subtitleColor = R.color.red
+        coloredTitleSubtitleExtraData.extraColor = R.color.red
         items.add(POSITION_COLORED_THREE_ROWS, coloredTitleSubtitleExtraData)
 
-        items.add(DividerData.create())
+        items.add(DividerData.create(R.color.red))
 
         val coloredTitleSecondaryTitleData = TitleSecondaryTitleData("Title & secondary text", "SECONDARY")
         coloredTitleSecondaryTitleData.titleColor = R.color.red
-        coloredTitleSecondaryTitleData.secondaryTitleColor = R.color.blue
+        coloredTitleSecondaryTitleData.secondaryTitleColor = R.color.red
         items.add(POSITION_COLORED_TITLE_SECONDARY_TEXT, coloredTitleSecondaryTitleData)
 
-        items.add(DividerData.create())
-
-        val coloredIconTitleData = IconTitleData(R.drawable.ic_android_black_24dp, "Colored Icon & Title")
-        coloredIconTitleData.titleColor = R.color.red
-        coloredIconTitleData.iconColor = R.color.red
-        items.add(POSITION_COLORED_ICON_TITLE, coloredIconTitleData)
 
 
         return items
